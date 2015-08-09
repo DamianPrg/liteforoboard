@@ -10,18 +10,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.4 -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link href="dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/skins/skin-blue.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/skins/skin-black.min.css') }}" rel="stylesheet" type="text/css" />
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   |               | sidebar-mini                            |
   |---------------------------------------------------------|
   -->
-  <body class="skin-blue sidebar-mini layout-boxed">
+  <body class="skin-black sidebar-mini layout-boxed sidebar-collapse">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -59,9 +61,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>ACP</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>LiteForo</b> ACP</span>
         </a>
 
         <!-- Header Navbar -->
@@ -74,6 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
+
               <li class="dropdown messages-menu">
                 <!-- Menu toggle button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -163,6 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
                 </ul>
               </li>
+
               <!-- User Account Menu -->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
@@ -205,9 +209,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->
+              <!--
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
               </li>
+              -->
             </ul>
           </div>
         </nav>
@@ -219,6 +225,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <section class="sidebar">
 
           <!-- Sidebar user panel (optional) -->
+
+          {{--
           <div class="user-panel">
             <div class="pull-left image">
               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
@@ -229,6 +237,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
+          --}}
 
           <!-- search form (Optional) -->
           <form action="#" method="get" class="sidebar-form">
@@ -245,13 +254,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li><a href="#"><i class="fa fa-tachometer fa-fw"></i>
+                <span>Dashboard</span></a></li>
+
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-cube fa-fw"></i><span>System</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#"><i class="fa fa-file-text fa-fw"></i>
+                     Configuration</a></li>
+                <li><a href="#"><i class="fa fa-file-text fa-fw"></i>
+                     Settings</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-users fa-fw"></i><span>Users</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                   Settings</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Manage</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-user fa-fw"></i><span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Settings</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Manage</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Add</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->
@@ -264,8 +298,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Page Header
-            <small>Optional description</small>
+            @yield('page_title', 'Some page')
+            <small>@yield('page_desc', 'Some description')</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -277,6 +311,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <section class="content">
 
           <!-- Your Page Content Here -->
+            @yield('content', 'No content')
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
@@ -285,10 +320,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Anything you want
+          <!-- footer additional text -->
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2015 <a href="#">LiteForo</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
@@ -358,11 +393,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED JS SCRIPTS -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/app.min.js') }}" type="text/javascript"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
           Both of these plugins are recommended to enhance the

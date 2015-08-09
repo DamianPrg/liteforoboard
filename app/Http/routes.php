@@ -19,16 +19,28 @@ Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 /**
  * Auth routes
  */ 
+Route::group(['as' => 'auth.'], function () {
+});
 
 /**
  * User routes
  */ 
+Route::group(['as' => 'user.'], function () {
+});
 
 /**
  * Forum/Board routes
  */ 
+Route::group(['as' => 'board.'], function () {
+});
 
 /**
  * ACP routes
  */ 
+Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
 
+	Route::get('index', ['as' => 'index', 'uses' => function() {
+		return view('skins.acp.layout');
+	}]);
+
+});
