@@ -14,7 +14,7 @@ return [
     */
 
     'paths' => [
-        realpath(base_path('resources/views/default')),
+        realpath(base_path('resources/views/skins/default')),
     ],
 
     /*

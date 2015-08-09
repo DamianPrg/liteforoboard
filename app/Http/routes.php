@@ -11,9 +11,24 @@
 |
 */
 
-Route::get('/', function() {
+/**
+ * Index routes.
+ */
+Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 
-	return view('skins.default.layouts.default');
+/**
+ * Auth routes
+ */ 
 
-});
+/**
+ * User routes
+ */ 
+
+/**
+ * Forum/Board routes
+ */ 
+
+/**
+ * ACP routes
+ */ 
 
