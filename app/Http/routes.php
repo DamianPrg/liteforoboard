@@ -11,3 +11,9 @@
 |
 */
 
+Route::get('/', function() {
+
+	return view('skins.default.layouts.default');
+
+});
+
