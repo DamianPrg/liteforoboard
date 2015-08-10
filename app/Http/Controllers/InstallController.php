@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 /**
  *
  */
@@ -10,5 +12,12 @@ class InstallController
 	 */
 	public function dev_setup()
 	{
+		Artisan::call('migrate');
+		Artisan::call('db:seed');
+	}
+	
+	public function index()
+	{
+		$this->dev_setup();
 	}
 }
