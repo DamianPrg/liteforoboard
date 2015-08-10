@@ -68,10 +68,21 @@ Route::get('/test/{id?}', function($id = 1) {
 	if($user->hasGroup())
 	{
 		echo "User has group";
+
+
 	}
 	else
 	{
 		echo "User doesnt have group or group doesnt exist!!!";
+	}
+
+	if($user->can('access', 'acp'))
+	{
+		echo "User can access acp with this group";
+	}
+	else
+	{
+		echo "User can't access acp because group doesn't have permission or user doesn't have group.";
 	}
 
 });

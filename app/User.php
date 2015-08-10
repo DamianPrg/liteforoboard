@@ -37,6 +37,37 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return true;
     }
 
+
+    /**
+     * Check if user can do some action based on permissions.
+     *
+     * Example: can('edit', 'topic', -1), will mean that user can edit all topics, because content_id = -1.
+     *
+     * @param $action
+     * @param $type
+     * @param int $content_id
+     * @return bool
+     */
+    public function can($action, $type, $content_id = -1)
+    {
+        if($this->hasGroup() == false)
+        {
+            return false;
+        }
+
+        if($this->hasGroup())
+        {
+            if($this->group->hasPermission($action, $type, $content_id)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * The database table used by the model.
      *
@@ -49,12 +80,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['username', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password'];
 }
