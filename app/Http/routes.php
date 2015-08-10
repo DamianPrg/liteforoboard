@@ -12,6 +12,11 @@
 */
 
 /**
+ * Install routes.
+ */
+Route::get('/install', 'InstallController@install');
+
+/**
  * Index routes.
  */
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
