@@ -61,7 +61,7 @@ Route::get('/test/{id?}', function($id = 1) {
 	dd($post->author);
 	*/
 
-	$user = \App\User::find($id);
+	$user = \App\User::findOrFail($id);
 
 	//dd($user->group);
 
@@ -84,5 +84,6 @@ Route::get('/test/{id?}', function($id = 1) {
 	{
 		echo "User can't access acp because group doesn't have permission or user doesn't have group.";
 	}
+	
 
 });
