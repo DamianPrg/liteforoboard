@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 /**
  *
  */
-class InstallController
+class InstallController extends Controller
 {
 	/**
 	 * Development setup
 	 */
-	public function dev_setup()
+	public function devSetup()
 	{
 		Artisan::call('migrate');
 		Artisan::call('db:seed');
@@ -18,6 +22,8 @@ class InstallController
 	
 	public function index()
 	{
-		$this->dev_setup();
+		$this->devSetup();
+		
+		echo "Installed...";
 	}
 }
