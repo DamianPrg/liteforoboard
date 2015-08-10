@@ -13,6 +13,31 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     use Authenticatable, CanResetPassword;
 
     /**
+     * Returns user group
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function group()
+    {
+        return $this->hasOne('App\Group', 'id', 'group_id');
+    }
+
+    /**
+     * Check if user has group
+     *
+     * @return bool
+     */
+    public function hasGroup()
+    {
+        if($this->group == null)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * The database table used by the model.
      *
      * @var string

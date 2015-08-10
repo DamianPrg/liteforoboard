@@ -40,7 +40,38 @@ Route::group(['as' => 'board.'], function () {
 Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
 
 	Route::get('index', ['as' => 'index', 'uses' => function() {
-		return view('skins.acp.layout');
+		return view('skins.acp.dashboard');
 	}]);
+
+	Route::get('test', ['as' => 'test', 'uses' => function() {
+		return view('skins.acp.test');
+	}]);
+
+});
+
+
+/**
+ * Test
+ */
+Route::get('/test/{id?}', function($id = 1) {
+
+	/*
+	$post = \App\Post::find(1);
+
+	dd($post->author);
+	*/
+
+	$user = \App\User::find($id);
+
+	//dd($user->group);
+
+	if($user->hasGroup())
+	{
+		echo "User has group";
+	}
+	else
+	{
+		echo "User doesnt have group or group doesnt exist!!!";
+	}
 
 });

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Group extends Model
 {
@@ -17,7 +18,7 @@ class Group extends Model
     /**
      * Add permission
  	 *
- 	 * @todo: Use exisiting permissions method.
+ 	 *
  	 * @return \App\GroupPermission
      */
     public function addPermission($action, $type, $content_id = -1)
@@ -47,7 +48,7 @@ class Group extends Model
     /**
      * Has permission?
  	 *
- 	 * @todo: Use existing permissions method
+ 	 *
      */
     public function hasPermission($action, $type, $content_id = -1)
     {

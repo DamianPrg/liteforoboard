@@ -23,6 +23,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <link href="{{ URL::asset('css/skins/skin-blue.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('css/skins/skin-black.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('css/skins/skin-green.min.css') }}" rel="stylesheet" type="text/css" />
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   |               | sidebar-mini                            |
   |---------------------------------------------------------|
   -->
-  <body class="skin-black sidebar-mini layout-boxed sidebar-collapse">
+  <body class="skin-blue sidebar-mini layout-boxed sidebar-collapse">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -77,6 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
 
+              {{--
               <li class="dropdown messages-menu">
                 <!-- Menu toggle button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -108,8 +111,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <li class="footer"><a href="#">See All Messages</a></li>
                 </ul>
               </li><!-- /.messages-menu -->
+              --}}
 
               <!-- Notifications Menu -->
+              {{--
               <li class="dropdown notifications-menu">
                 <!-- Menu toggle button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -131,7 +136,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <li class="footer"><a href="#">View all</a></li>
                 </ul>
               </li>
+              --}}
               <!-- Tasks Menu -->
+              {{--
               <li class="dropdown tasks-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -165,45 +172,43 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#">View all tasks</a>
                   </li>
                 </ul>
-              </li>
+              </li>--}}
 
               <!-- User Account Menu -->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
+                  <img src="" class="user-image" alt="User Image" />
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">Username</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      User
+                      <small>Group</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="#">Edit</a>
                     </div>
                     <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
+                      <a href="#">Profile</a>
                     </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
+
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="#" class="btn btn-xs btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat btn-danger">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -254,11 +259,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="#"><i class="fa fa-tachometer fa-fw"></i>
+            <li><a href="#"><i class="fa fa-tachometer"></i>
                 <span>Dashboard</span></a></li>
 
             <li class="treeview">
-              <a href="#"><i class="fa fa-cube fa-fw"></i><span>System</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-cube"></i><span>System</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-file-text fa-fw"></i>
                      Configuration</a></li>
@@ -268,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="treeview">
-              <a href="#"><i class="fa fa-users fa-fw"></i><span>Users</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-users"></i><span>Users</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-file-text"></i>
                    Settings</a></li>
@@ -278,7 +283,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="treeview">
-              <a href="#"><i class="fa fa-user fa-fw"></i><span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-user"></i><span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-file-text"></i>
                     Settings</a></li>
@@ -286,6 +291,67 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     Manage</a></li>
                 <li><a href="#"><i class="fa fa-file-text"></i>
                     Add</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-comment"></i><span>Content</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Blog settings</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Settings</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Manage</a></li>
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Categories</a></li>
+              </ul>
+            </li>
+
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-paint-brush"></i><span>Theme / Skins</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Settings</a></li>
+
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Custom CSS</a></li>
+
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Custom JavaScript</a></li>
+
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Skins</a></li>
+
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Sides</a></li>
+
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-user-secret"></i><span>Advanced</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-file-text"></i>
+                    Reset</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-terminal"></i><span>Framework</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-terminal"></i>
+                    Artisan</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#"><i class="fa fa-terminal"></i><span>Developer</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-terminal"></i>
+                    ?</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->
@@ -310,8 +376,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <section class="content">
 
+          @yield('content_top', '')
+
           <!-- Your Page Content Here -->
-            @yield('content', 'No content')
+          <div class='box box-solid'>
+
+            {{--
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+              <div class="box-tools pull-right">
+                <!--
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                -->
+              </div>
+            </div> --}}
+
+            <div class="box-body">
+              @yield('content', 'No content')
+
+              @for($i = 0; $i < 2; $i++)
+                @yield('content_' . $i, 'LOL')
+                @endfor
+            </div>
+
+
+
+          </div>
+
+          @yield('content_bottom', '')
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
