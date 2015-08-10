@@ -8,6 +8,6 @@ little project in laravel 5
 
 ### Development setup
 1. place project in your webserver directory
-2. run 'composer update'
+2. run 'composer install'
 3. copy .env.example as .env and fill your database connection details
 4. navigate to http://your_web_server/install to migrate and seed database
