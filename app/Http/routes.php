@@ -12,6 +12,11 @@
 */
 
 /**
+ * Install routes.
+ */
+Route::get('/install', 'InstallController@install');
+
+/**
  * Index routes.
  */
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
@@ -53,6 +58,18 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
 /**
  * Test
  */
+Route::get('/sess', function(\App\Auth $auth) {
+
+	if($auth->auth('Damian', ''))
+	{
+		echo "ok";
+	}
+	else {
+		echo "bad!";
+	}
+
+});
+
 Route::get('/test/{id?}', function($id = 1) {
 
 	/*

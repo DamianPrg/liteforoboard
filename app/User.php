@@ -37,6 +37,41 @@ class User extends Model
         return true;
     }
 
+    /**
+     * Is user administrator?
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        if ($this->can('access', 'acp')) return true;
+
+        return false;
+    }
+
+    /**
+     * Is user moderator
+     *
+     * @return bool
+     */
+    public function isModerator()
+    {
+        if ($this->can('access', 'modcp')) return true;
+
+        return false;
+    }
+
+    /**
+     * Is user either admin or mod
+     *
+     * @return bool
+     */
+    public function isStaff()
+    {
+        if($this->isAdmin() || $this->isModerator()) return true;
+
+        return false;
+    }
 
     /**
      * The database table used by the model.
