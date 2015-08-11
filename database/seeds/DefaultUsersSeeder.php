@@ -17,6 +17,9 @@ class DefaultUsersSeeder extends Seeder
 
         // seed administrator account
         $this->createAdministratorAccount();
+
+        // seed test account
+        $this->createTestAccount();
     }
 
     /**
@@ -30,4 +33,16 @@ class DefaultUsersSeeder extends Seeder
                 'active'   => true
         ]);
      }
+
+    /**
+     * Create test account
+     */
+    public function createTestAccount()
+    {
+        $user = User::create([
+            'username' => 'Test',
+            'password' => bcrypt('test'),
+            'active'   => true,
+        ]);
+    }
 }

@@ -19,6 +19,8 @@ class Auth
 
     public function isUserLogged()
     {
+//        dd(session('user_id'));
+
         if(session('user_id') != null)
         {
             return true;
@@ -59,8 +61,6 @@ class Auth
 
         if($user)
         {
-
-
             if(\Hash::check($password, $user->password))
             {
                 // rehash password if needed

@@ -58,14 +58,23 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
 /**
  * Test
  */
-Route::get('/sess', function(\App\Auth $auth) {
+Route::get('/auth/{username}/{password}', function($username, $password, \App\Auth $auth) {
 
-	if($auth->auth('Admin', 'admin'))
+	if($auth->auth($username, $password))
 	{
 		echo "ok";
 	}
 	else {
 		echo "bad!";
+	}
+
+});
+
+Route::get('/profile', function(\App\Auth $auth) {
+
+	if($auth->isUserLogged())
+	{
+		echo "You are logged as: " . $auth->getLoggedUser()->username . "!";
 	}
 
 });
