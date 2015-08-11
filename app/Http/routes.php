@@ -60,7 +60,7 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
  */
 Route::get('/sess', function(\App\Auth $auth) {
 
-	if($auth->auth('Damian', ''))
+	if($auth->auth('Admin', 'admin'))
 	{
 		echo "ok";
 	}

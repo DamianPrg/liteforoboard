@@ -46,22 +46,30 @@ class Auth
      */
     public function auth($username, $password)
     {
-        $pass = bcrypt($password);
-
-
         $user = User::where('username', $username)->first();
 
-        dd($user, $pass);
+      //dd($user);
 
         if($user == null)
         {
             return false;
         }
 
+
+
         if($user)
         {
-            if($user->password == $pass)
+
+
+            if(\Hash::check($password, $user->password))
             {
+                // rehash password if needed
+                if(\Hash::needsRehash($user->password))
+                {
+                    $user->password = bcrypt($password);
+                    $user->save();
+                }
+
                 session(['user_id' => $user->id]); // make user logged.
 
                 return true;
