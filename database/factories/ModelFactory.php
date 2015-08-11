@@ -14,10 +14,18 @@
 $factory->define(App\User::class, function ($faker) {
     return [
 <<<<<<< HEAD
+<<<<<<< HEAD
         'name' => $faker->userName,
         'email' => $faker->email,
         'password' => str_random(10),
         'group_id' => 'factory:App\Group',
+=======
+        'username' => $faker->userName,
+        'email' => $faker->email,
+        'password' => bcrypt($faker->password),
+        'active' => 1,
+        'group_id' => 1, // should be default user group id
+>>>>>>> origin/master
 =======
         'username' => $faker->userName,
         'email' => $faker->email,
