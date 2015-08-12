@@ -25,6 +25,9 @@ Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
  * Auth routes
  */ 
 Route::group(['as' => 'auth.'], function () {
+	Route::get('/login', 'AuthController@loginPage');
+	Route::post('/do_login', ['as' => 'do.login', 'uses' => 'AuthController@login']);
+	Route::get('/logout', 'AuthController@logout');
 });
 
 /**
@@ -75,6 +78,9 @@ Route::get('/profile', function(\App\Auth $auth) {
 	if($auth->isUserLogged())
 	{
 		echo "You are logged as: " . $auth->getLoggedUser()->username . "!";
+	}
+	else {
+		echo "You are not logged.";
 	}
 
 });

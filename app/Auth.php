@@ -78,4 +78,9 @@ class Auth
 
         return false;
     }
+
+    public function logout()
+    {
+        \Session::forget('user_id');
+    }
 }
