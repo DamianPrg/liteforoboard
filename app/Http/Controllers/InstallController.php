@@ -16,12 +16,12 @@ class InstallController extends Controller
 	 */
 	public function devSetup()
 	{
-		Artisan::call('key:generate');
-		Artisan::call('migrate');
-		Artisan::call('db:seed');
+		\Artisan::call('key:generate');
+		\Artisan::call('migrate');
+		\Artisan::call('db:seed');
 	}
 	
-	public function index()
+	public function install()
 	{
 		$this->devSetup();
 		

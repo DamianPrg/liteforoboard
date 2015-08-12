@@ -11,8 +11,16 @@ class DefaultSettingsSeeder extends Seeder
      */
     public function run()
     {
+    	\DB::table('settings')->truncate();
+    	\DB::table('group_settings')->truncate();
         //
+        $this->createSettings();
         $this->createGroupSettings();
+    }
+
+    public function createSettings()
+    {
+    	$settings = \App\Settings::create([]);
     }
 
     /**
