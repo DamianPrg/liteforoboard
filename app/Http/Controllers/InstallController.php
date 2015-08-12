@@ -16,6 +16,7 @@ class InstallController extends Controller
 	 */
 	public function devSetup()
 	{
+		Artisan::call('key:generate');
 		Artisan::call('migrate');
 		Artisan::call('db:seed');
 	}
@@ -25,5 +26,7 @@ class InstallController extends Controller
 		$this->devSetup();
 		
 		echo "Installed...";
+
+		return redirect('/');
 	}
 }
