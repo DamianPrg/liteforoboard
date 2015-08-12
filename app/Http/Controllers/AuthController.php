@@ -37,7 +37,9 @@ class AuthController extends Controller
 
     public function logout(Auth $auth)
     {
-        $auth->logout();
+        $this->auth = $auth;
+
+        $this->auth->logout();
 
         return redirect('/profile');
     }
