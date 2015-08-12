@@ -19,5 +19,6 @@ class SettingsRepository
 	 */
 	public function getSettings()
 	{
+		return \App\Settings::find(1);
 	}
 }

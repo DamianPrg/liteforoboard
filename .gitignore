@@ -34,3 +34,5 @@ _ide_helper.php
 readme.md
 
 .phpstorm.meta.php
+
+.idea/liteforo-v1.iml
