@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Group;
 
 class DefaultUsersSeeder extends Seeder
 {
@@ -15,11 +16,25 @@ class DefaultUsersSeeder extends Seeder
         // remove all records
         \DB::table('users')->truncate();
 
+        // create default groups
+        $this->createAdministratorGroup();
+
         // seed administrator account
         $this->createAdministratorAccount();
 
         // seed test account
         $this->createTestAccount();
+    }
+
+    /**
+     * Create administrator group
+     */
+    public function createAdministratorGroup()
+    {
+    	$adminGroup = Group::create([
+    			'name' => 'Administrator',
+    			'color' => '#f00'
+    	]);
     }
 
     /**
