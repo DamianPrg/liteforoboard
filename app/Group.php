@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
+/**
+ * Class Group
+ * @package App
+ */
 class Group extends Model
 {
 	/**
@@ -18,10 +22,11 @@ class Group extends Model
     /**
      * Add permission
  	 *
+	 * Note: when called without arguments, group will have '*', '*' permissions it means access to anything.
  	 *
  	 * @return \App\GroupPermission
      */
-    public function addPermission($action, $type, $content_id = -1)
+    public function addPermission($action = '*', $type = '*', $content_id = -1)
     {
     	$existingGroupPermission = $this->permissions->where('permission_action', $action)
     										  ->where('permission_type', $type)

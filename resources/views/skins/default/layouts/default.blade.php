@@ -10,13 +10,15 @@
 			<div class='container'>
 
 				<nav class='nav'>
-					<a href='#'>Forums</a>
+					<a href='{{ url('/') }}'>Forums</a>
 					
 					@yield('nav_links', '')
 				</nav>
 
 				<section class='content'>
 					@yield('content', '')
+
+					{{ $content or '' }}
 				</section>
 
 				<footer>Powered by LiteForo</footer>

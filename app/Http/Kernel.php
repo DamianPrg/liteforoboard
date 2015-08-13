@@ -26,5 +26,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'AdminOnly' => \App\Http\Middleware\AdminOnly::class
     ];
 }

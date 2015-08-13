@@ -4212,3 +4212,7 @@ table.text-center th {
     white-space: normal!important;
   }
 }
+
+.no-display-empty:empty {
+display:none;
+}

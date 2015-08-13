@@ -45,15 +45,9 @@ Route::group(['as' => 'board.'], function () {
 /**
  * ACP routes
  */ 
-Route::group(['prefix' => 'acp', 'as' => 'acp.'], function () {
+Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middleware' => 'AdminOnly'], function () {
 
-	Route::get('index', ['as' => 'index', 'uses' => function() {
-		return view('skins.acp.dashboard');
-	}]);
-
-	Route::get('test', ['as' => 'test', 'uses' => function() {
-		return view('skins.acp.test');
-	}]);
+	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
 });
 
@@ -72,6 +66,7 @@ Route::get('/auth/{username}/{password}', function($username, $password, \App\Au
 	}
 
 });
+
 
 Route::get('/profile', function(\App\Auth $auth) {
 

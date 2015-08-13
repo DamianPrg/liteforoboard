@@ -1,3 +1,5 @@
+@inject('auth', 'App\Auth')
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -179,9 +181,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="" class="user-image" alt="User Image" />
+                  <!--<img src="" class="user-image" alt="User Image" />-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Username</span>
+                  <span class="hidden-xs">{{$auth->getLoggedUser()->username}}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
@@ -379,7 +381,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           @yield('content_top', '')
 
           <!-- Your Page Content Here -->
-          <div class='box box-solid'>
+          <div class='box box-solid no-display-empty'>
 
             {{--
             <div class="box-header with-border">
@@ -392,17 +394,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
             </div> --}}
 
-            <div class="box-body">
+            <div class="box-body no-display-empty" style="height:auto;">
               @yield('content', 'No content')
 
-              @for($i = 0; $i < 2; $i++)
-                @yield('content_' . $i, 'LOL')
-                @endfor
+
+            </div>
+
+            @for($i = 0; $i < 2; $i++)
+              @yield('content_' . $i, '')
+            @endfor
+
+          </div>
+
+          @for($i = 0; $i < 3; $i++)
+            <div class='box box-solid'>
+              <div class="box-body">
+                @yield('content_' . $i)
+
+
+              </div>
             </div>
 
 
-
-          </div>
+            @endfor
 
           @yield('content_bottom', '')
 

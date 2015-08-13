@@ -18,6 +18,7 @@ class CreateGroupSettingsTable extends Migration
             $table->integer('default_user_group')->default(-1);
             $table->integer('default_admin_group')->default(-1);
             $table->integer('default_mod_group')->default(-1);
+            $table->integer('banned_group')->default(-1);
 
             $table->timestamps();
         });

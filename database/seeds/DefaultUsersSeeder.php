@@ -16,25 +16,11 @@ class DefaultUsersSeeder extends Seeder
         // remove all records
         \DB::table('users')->truncate();
 
-        // create default groups
-        $this->createAdministratorGroup();
-
         // seed administrator account
         $this->createAdministratorAccount();
 
         // seed test account
         $this->createTestAccount();
-    }
-
-    /**
-     * Create administrator group
-     */
-    public function createAdministratorGroup()
-    {
-    	$adminGroup = Group::create([
-    			'name' => 'Administrator',
-    			'color' => '#f00'
-    	]);
     }
 
     /**
@@ -45,7 +31,8 @@ class DefaultUsersSeeder extends Seeder
          $user = User::create([
                 'username' => 'Admin',
                 'password' => bcrypt('admin'),
-                'active'   => true
+                'active'   => true,
+                'group_id' => 2 // group 2 is Admin group.
         ]);
      }
 
@@ -58,6 +45,7 @@ class DefaultUsersSeeder extends Seeder
             'username' => 'Test',
             'password' => bcrypt('test'),
             'active'   => true,
+            'group_id' => 1
         ]);
     }
 }

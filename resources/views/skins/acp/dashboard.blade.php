@@ -48,3 +48,7 @@
 @section('content')
     Welcome to dashboard.
 @endsection
+
+@section('content_2')
+        Welcome haha
+    @endsection

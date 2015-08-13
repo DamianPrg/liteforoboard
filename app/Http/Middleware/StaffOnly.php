@@ -8,7 +8,7 @@ use Closure;
 /**
  * Only admin can access the page, if not admin redirected to home.
  */
-class AdminOnly
+class StaffOnly
 {
     protected $auth = null;
 
@@ -29,13 +29,11 @@ class AdminOnly
             $user = $this->auth->getLoggedUser();
 
             // is user admin?
-            if($user->isAdmin())
+            if($user->isStaff())
             {
                 return $next($request);
             }
         }
-
-       // return redirect('/no-permission')->with('__middleware', 'AdminOnly');
 
         return redirect()->back()->withErrors(['No permission']);
     }

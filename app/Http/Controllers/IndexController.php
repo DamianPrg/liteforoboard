@@ -11,6 +11,6 @@ class IndexController extends Controller
 {
 	public function index()
 	{
-		echo "Home";
+		return view('skins.default.layouts.default', ['content' => 'Home page...']);
 	}
 }
