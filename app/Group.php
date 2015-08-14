@@ -8,6 +8,11 @@ use DB;
 /**
  * Class Group
  * @package App
+ *
+ * id 1 - members group
+ * id 2 - moderators group
+ * id 3 - administrators group
+ * id 4 - banned group
  */
 class Group extends Model
 {

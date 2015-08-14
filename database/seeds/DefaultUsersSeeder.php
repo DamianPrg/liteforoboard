@@ -32,8 +32,10 @@ class DefaultUsersSeeder extends Seeder
                 'username' => 'Admin',
                 'password' => bcrypt('admin'),
                 'active'   => true,
-                'group_id' => 2 // group 2 is Admin group.
+                'group_id' => 3 // group 3 is Admin group.
         ]);
+
+         $user->updateSlug();
      }
 
     /**
@@ -45,7 +47,8 @@ class DefaultUsersSeeder extends Seeder
             'username' => 'Test',
             'password' => bcrypt('test'),
             'active'   => true,
-            'group_id' => 1
         ]);
+
+        $user->updateSlug();
     }
 }

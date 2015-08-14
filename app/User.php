@@ -73,6 +73,13 @@ class User extends Model
         return false;
     }
 
+    public function updateSlug()
+    {
+        $this->update([
+            'slug' => $this->id . '-' . strtolower($this->username)
+        ]);
+    }
+
     /**
      * The database table used by the model.
      *

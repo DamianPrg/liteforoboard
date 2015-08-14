@@ -6,7 +6,7 @@ use App\Auth;
 use Closure;
 
 /**
- * Only admin can access the page, if not admin redirected to home.
+ * Only staff can access the page, if not admin redirected to home.
  */
 class StaffOnly
 {

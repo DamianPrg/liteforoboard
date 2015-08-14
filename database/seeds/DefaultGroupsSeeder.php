@@ -32,6 +32,7 @@ class DefaultGroupsSeeder extends Seeder
     public function createUsersGroup()
     {
         $group = \App\Group::create([
+            'id'   => 1,
             'name' => 'Member',
             'color' => '#222'
         ]);
@@ -48,6 +49,7 @@ class DefaultGroupsSeeder extends Seeder
     public function createAdminsGroup()
     {
         $group = \App\Group::create([
+            'id'   => 3,
             'name' => 'Administrator',
             'color' => '#f00'
         ]);
@@ -64,6 +66,7 @@ class DefaultGroupsSeeder extends Seeder
     public function createModsGroup()
     {
         $group = \App\Group::create([
+            'id' => 2,
             'name' => 'Moderator',
             'color' => '#0f0'
         ]);
@@ -80,6 +83,7 @@ class DefaultGroupsSeeder extends Seeder
     public function createBannedGroup()
     {
         $group = \App\Group::create([
+            'id'   => 4,
             'name' => 'Banned',
             'color' => '#000'
         ]);

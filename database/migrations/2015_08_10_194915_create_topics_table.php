@@ -14,6 +14,7 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->default('no-slug');
             $table->string('title')->default(trans('lang.topic_title'));
             $table->integer('author_id')->default(1);
             $table->integer('category_id')->default(1);
