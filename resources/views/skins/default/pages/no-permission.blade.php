@@ -1,3 +1,4 @@
+@extends('skins.default.layouts.default')
 @section('content')
 
     <h3>No permission</h3>

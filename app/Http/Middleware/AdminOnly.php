@@ -37,6 +37,7 @@ class AdminOnly
 
        // return redirect('/no-permission')->with('__middleware', 'AdminOnly');
 
-        return redirect()->back()->withErrors(['No permission']);
+        return redirect('/no-permission');
+        //return redirect()->back()->withErrors(['No permission']);
     }
 }
