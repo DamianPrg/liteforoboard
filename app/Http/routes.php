@@ -114,3 +114,11 @@ Route::get('/test/{id?}', function($id = 1) {
 	
 
 });
+
+Route::get('/slug', function() {
+
+
+
+	echo strtolower(str_slug('Jak sie macie?'));
+
+});

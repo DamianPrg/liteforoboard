@@ -1,7 +1,9 @@
 <!DOCTYPE>
 <html>
 	<head>
-		<title></title> 
+		<title></title>
+
+		<link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}"
 	</head>
 
 	<body>
