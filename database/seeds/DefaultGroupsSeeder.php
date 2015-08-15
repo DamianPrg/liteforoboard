@@ -34,7 +34,7 @@ class DefaultGroupsSeeder extends Seeder
         $group = \App\Group::create([
             'id'   => 1,
             'name' => 'Member',
-            'color' => '#222'
+            'color' => '#464646'
         ]);
 
         $group->addPermission('can', 'login');
@@ -51,7 +51,7 @@ class DefaultGroupsSeeder extends Seeder
         $group = \App\Group::create([
             'id'   => 3,
             'name' => 'Administrator',
-            'color' => '#f00'
+            'color' => '#db5565'
         ]);
 
         $group->addPermission('access', 'acp');
@@ -68,7 +68,7 @@ class DefaultGroupsSeeder extends Seeder
         $group = \App\Group::create([
             'id' => 2,
             'name' => 'Moderator',
-            'color' => '#0f0'
+            'color' => '#66c796'
         ]);
 
         $group->addPermission('access', 'modcp');

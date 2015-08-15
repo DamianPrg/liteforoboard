@@ -80,6 +80,11 @@ class User extends Model
         ]);
     }
 
+    public function link()
+    {
+        return "<a href='#'>" . $this->username . "</a>";
+    }
+
     /**
      * The database table used by the model.
      *

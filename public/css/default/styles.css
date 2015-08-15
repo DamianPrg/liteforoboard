@@ -331,3 +331,30 @@ form > label {
 .item-auto {
 	width:auto;
 }
+
+/* post */
+.post {
+	display: flex;
+	display: -webkit-flex;
+	min-height: 200px;
+	margin-top:10px;
+
+
+}
+.post-author {
+	width: 170px;
+	margin-right:10px;
+	background: rgba(0,0,0,0.03);
+	border:1px solid rgba(0,0,0,0.05);
+}
+
+.post-author > div {
+	max-height: 400px;
+
+	padding:10px;
+}
+
+.post-content {
+	flex:1;
+	-webkit-flex: 1;
+}

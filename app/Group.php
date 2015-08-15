@@ -77,4 +77,11 @@ class Group extends Model
     	return true;
     }
 
+	public function badge()
+	{
+		//return "<div style='text-align:center;width:100%;font-size:12px;height:20px;line-height:20px;border-radius:2px;border:1px solid rgba(0,0,0,0.2);color:rgba(255,255,255,0.7);background:$this->color;'>$this->name</div>";
+		return "<div style='text-align:center;width:100%;font-size:12px;height:20px;line-height:20px;border-radius:2px;border:1px solid rgba(0,0,0,0.2);color:rgba(0,0,0,0.35);text-shadow:-1px 0px 1px rgba(255,255,255,0.2);background:$this->color;'>$this->name</div>";
+
+	}
+
 }
