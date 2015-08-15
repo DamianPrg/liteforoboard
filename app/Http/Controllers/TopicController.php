@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Topic;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -49,11 +49,9 @@ class CategoryController extends Controller
      */
     public function show($slug)
     {
-        //
-        $category = Category::where('slug', $slug)->firstOrFail();
+        $topic = Topic::where('slug', $slug)->firstOrFail();
 
-       // dd($category);
-        return view('skins.default.board.category', ['category' => $category]);
+        return view('skins.default.board.topic', ['topic' => $topic]);
     }
 
     /**

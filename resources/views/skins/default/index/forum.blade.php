@@ -24,7 +24,14 @@
                             <div class='data-item-forum item-dynamic item'>
                                 <div>{!! $cat->link()  !!}</div>
                                 <div class='muted-text'>{{$cat->desc}}</div>
+                            </div>
+
+                                <div class='data-item-forum item-dynamic item'>
+                                    <div>{!! $cat->numPosts()  !!}</div>
+
                                 </div>
+
+
 
                                 </div>
                             @endforeach

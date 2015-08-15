@@ -12,11 +12,13 @@ class DefaultContentSeeder extends Seeder
     public function run()
     {
         \DB::table('categories')->truncate();
+        \DB::table('posts')->truncate();
+        \DB::table('topics')->truncate();
 
         //
         $cat = $this->createTestCategory();
 
-        $cat->addCategory('Test forum #1', 'This is test forum 1');
+        $c = $cat->addCategory('Test forum #1', 'This is test forum 1');
         $cat->addCategory('Test forum #2', 'This is also test forum but number 2');
 
         $cat2 = \App\Category::create([
@@ -27,7 +29,7 @@ class DefaultContentSeeder extends Seeder
 
         $cat2->addCategory('Test forum #1', 'This is test forum in cat 2');
 
-        $cat->addTopic("Welcome!", "Welcome to LiteForo!", \App\User::find(1));
+        $c->addTopic("Welcome!", "Welcome to LiteForo!", \App\User::find(1));
     }
 
     /**

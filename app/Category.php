@@ -23,6 +23,36 @@ class Category extends Model
     }
 
     /**
+     * @return int
+     */
+    public function numPosts()
+    {
+        $num = 0;
+
+        foreach($this->topics as $tops)
+        {
+            $num += $tops->count();
+        }
+
+        return $num;
+    }
+
+    /**
+     * @return int
+     */
+    public function numReplies()
+    {
+        $num = 0;
+
+        foreach($this->topics as $tops)
+        {
+            $num += $tops->count() - 1;
+        }
+
+        return $num;
+    }
+
+    /**
      * @param $title
      * @param $desc
      * @return Model
@@ -39,6 +69,15 @@ class Category extends Model
         return $subCategory;
     }
 
+
+    /**
+     * @param $title
+     * @param $message
+     * @param User $user
+     * @param bool|false $pinned
+     * @param bool|false $locked
+     * @return Model
+     */
     public function addTopic($title, $message, User $user, $pinned = false, $locked = false)
     {
         $topic = $this->topics()->create([
@@ -52,6 +91,8 @@ class Category extends Model
 
         // add post
         $topic->addPost($message, $user);
+
+        return $topic;
     }
 
     /**

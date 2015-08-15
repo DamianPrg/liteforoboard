@@ -16,6 +16,11 @@ class Topic extends BaseModel
         return $this->hasMany('App\Post', 'topic_id');
     }
 
+    public function link()
+    {
+        return "<a href='" . route('board.topic.show', [$this->slug]) ."'>" . $this->title . "</a>";
+    }
+
     public function addPost($message, User $user)
     {
         $this->posts()->create([

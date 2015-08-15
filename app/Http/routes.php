@@ -41,6 +41,8 @@ Route::group(['as' => 'user.'], function () {
  */ 
 Route::group(['as' => 'board.'], function () {
 	Route::get('/category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
+
+	Route::get('/topic/{slug}', ['as' => 'topic.show', 'uses' => 'TopicController@show']);
 });
 
 /**
