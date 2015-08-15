@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DefaultSettingsSeeder::class); // seed default settings
         $this->call(DefaultGroupsSeeder::class);   // seed groups
         $this->call(DefaultUsersSeeder::class);	   // seed default users
+        $this->call(DefaultContentSeeder::class);
 
         Model::reguard();
     }

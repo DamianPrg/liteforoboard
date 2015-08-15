@@ -16,6 +16,15 @@ class Topic extends BaseModel
         return $this->hasMany('App\Post', 'topic_id');
     }
 
+    public function addPost($message, User $user)
+    {
+        $this->posts()->create([
+            'title' => $this->title,
+            'message' => $message,
+            'author_id' => $user->id
+        ]);
+    }
+
     /**
      * Update slug
      */

@@ -4,12 +4,20 @@
 		<title>@yield('head.title', '')</title>
 
 		<!-- css -->
-				<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 
-		<link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}">
+        <!-- Bootstrap 3.3.4 -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 
-		<!-- css -->
+        <!-- Font Awesome Icons -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+        <link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}">
+
+        <!-- css -->
 	</head>
 
 	<body>
@@ -27,14 +35,31 @@
 
 
 							<nav class='nav nice-link-color'>
-					<a href='#'>Forums</a>
+					<a href='{{route('index')}}'>Forums</a>
+
+                    <span class='dropdown'>
+                                <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Username
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                        </span>
+
+
 
 				</nav>
+
+
 		
 
-			<div class='links'>
-				@yield('links')
-			</div>
+
+
+            @yield('wrapper-top')
 
 			<div class='content'>
 				<div class='main'>
@@ -42,18 +67,13 @@
 				</div>
 
 				<aside class='side'>
-								<div class='side-element'>
-						<div class='side-element-header'>
-						Side
-						</div>
-						This is side element.
-					</div>
+                    @yield('side')
 				</aside>
 			</div>
 
-			<div class='links'>
-				@yield('links')
-			</div>
+            <div clas='clearfix'></div>
+
+            @yield('wrapper-bottom')
 
 
 		
@@ -62,14 +82,17 @@
 
 		</div>
 		<!-- wrapper -->	
-		<div class='wrapper wrapper-footer wrapper-ns-without-border'>
+		<div class='wrapper wrapper-footer '>
 		<footer class='footer'>
 			<div class='left'>
-				<div>Quick links</div>
+				<div><i class="fa fa-link fa-fw"></i> Quick links</div>
 				<nav class='footer-nav'>
-					<div><a href='#'>Forums</a></div>
-					<div><a href='#'>Staff</a></div>
-					<div><a href='#'>Contact</a></div>
+					<div><i class="fa fa-link fa-fw"></i>
+                        <a href='{{route('index')}}'>Forums</a></div>
+					<div><i class="fa fa-link fa-fw"></i>
+                        <a href='#'>Staff</a></div>
+					<div><i class="fa fa-link fa-fw"></i>
+                        <a href='#'>Contact</a></div>
 				</nav>
 			</div>
 
@@ -82,5 +105,9 @@
 			</div>
 		</footer>
 		</div>
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="{{URL::asset('js/scripts.js')}}"></script>
 	</body>
 </html>

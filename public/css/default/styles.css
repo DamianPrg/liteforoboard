@@ -6,13 +6,15 @@ html {
 body {
 	background:#f2f2f2;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+    color:rgba(0,0,0,0.7);
 }
 
 .wrapper {
 	
 	max-width: 1100px;
 	margin:0 auto;
+
+
 
 
 }
@@ -25,7 +27,13 @@ body {
 .wrapper-styled {
     border:1px solid rgb(220,220,220);
     background:#fff;
-    min-height:100px;
+
+
+
+}
+
+.clearfix {
+	clear:both;
 }
 
 .header {
@@ -54,7 +62,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-decoration:none;
 	padding-left:15px;
-	font-size:14px;
+	font-size:13px;
 	padding-top:6px;
 	padding-bottom:6px;
 	padding-right:15px;
@@ -73,9 +81,31 @@ body {
 	border:1px solid rgba(0,0,0,0.05);
 }
 
+.dropdown-li {
+	display:inline-block !important;
+}
+.dropdown-link {
+	display:inline-block !important;
+	padding-right:4px !important;
+}
+.dropdown-caret {
+	display:inline-block !important;
+	padding-left:4px !important;
+}
+
+.nav > li:hover {
+	background-color: #f67a47; /*hover background color*/
+}
+.nav > li:hover > a {
+	color: white; /*hover text color*/
+}
+.nav > li:hover > ul > a {
+	color: black; /*dropdown item text color*/
+}
+
 .content {
 	width: auto;
-	
+
 	display:-webkit-flex;
 }
 
@@ -86,6 +116,7 @@ body {
 
 .side {
 	width:200px;
+    background:yellowgreen;
 	
 }
 
@@ -98,22 +129,59 @@ body {
 	padding:10px;
 	font-size:13px;
 
+
 }
 
 .side-element-header {
-	background:rgba(255,255,255,0.3);
-	padding:5px;
+	font-size:15px;
+	padding-bottom:5px;
+	color:rgba(0,0,0,0.7);
+	
 }
 .side-element {
 	background:rgba(0,0,0,0.05);
 	border-radius:3px;
 	padding:10px;
 	padding-top:5px;
+	padding-bottom:5px;
+	color:rgba(0,0,0,0.4);
 }
 
 .links {
-	height:30px;
+	width:100%;
 
+
+	background: rgba(0,0,0,0.015);
+
+	padding-left:10px;
+	padding-right:10px;
+	display:flex;
+	display:-webkit-flex;
+
+}
+
+.links .left, .right {
+	-webkit-flex: 1;
+	flex:1;
+}
+
+.links .left {
+	text-align: left;
+	line-height: 30px;
+}
+
+.links .right {
+	text-align: right;
+	line-height: 30px;
+}
+
+.links-bottom {
+
+}
+
+.links nav a {
+	font-size:12px;
+	color:rgba(0,0,0,0.5);
 }
 
 .footer {
@@ -227,3 +295,26 @@ form > label {
 	font-size:16px;
 }
 
+.box-row {
+	display:-webkit-flex;
+}
+
+.item {
+	padding:10px;
+}
+
+.item-dynamic {
+	-webkit-flex: 1;
+}
+
+.item-icon {
+	min-width: 32px;
+
+}
+
+.box-data-header {
+	background:#303946;
+	padding:8px;
+	border-radius:3px;
+	color:rgba(255,255,255,0.7);
+}

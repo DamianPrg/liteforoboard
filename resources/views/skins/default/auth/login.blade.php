@@ -2,6 +2,8 @@
 
 @section('content')
 
+	<h3>Login</h3>
+
     <form action="{{ route('auth.do.login') }}" method="POST">
 
 <!--
@@ -22,7 +24,10 @@
         </div>
         -->
 
+
 <div class='box'>
+
+
         <div class='form'>
         	<div class='form-element'>
         		<div class='detail'>
@@ -49,7 +54,7 @@
         			
         		</div>
         		<div class='input'>
-        		 	<button type="submit">Login</button>
+        		 	<button type="submit" class="btn btn-default btn-sm">Login</button>
         		</div>
         	</div>
 
@@ -61,3 +66,9 @@
     </form>
 
 @endsection
+
+@section('links-right')
+	<nav>
+		<a href='#'>Sign Up</a>
+	</nav>
+	@endsection

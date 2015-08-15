@@ -40,6 +40,7 @@ Route::group(['as' => 'user.'], function () {
  * Forum/Board routes
  */ 
 Route::group(['as' => 'board.'], function () {
+	Route::get('/category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
 });
 
 /**
@@ -52,73 +53,3 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 });
 
 
-/**
- * Test
- */
-Route::get('/auth/{username}/{password}', function($username, $password, \App\Auth $auth) {
-
-	if($auth->auth($username, $password))
-	{
-		echo "ok";
-	}
-	else {
-		echo "bad!";
-	}
-
-});
-
-
-Route::get('/profile', function(\App\Auth $auth) {
-
-	if($auth->isUserLogged())
-	{
-		echo "You are logged as: " . $auth->getLoggedUser()->username . "!";
-	}
-	else {
-		echo "You are not logged.";
-	}
-
-});
-
-Route::get('/test/{id?}', function($id = 1) {
-
-	/*
-	$post = \App\Post::find(1);
-
-	dd($post->author);
-	*/
-
-	$user = \App\User::findOrFail($id);
-
-	//dd($user->group);
-
-	if($user->hasGroup())
-	{
-		echo "User has group";
-
-
-	}
-	else
-	{
-		echo "User doesnt have group or group doesnt exist!!!";
-	}
-
-	if($user->can('access', 'acp'))
-	{
-		echo "User can access acp with this group";
-	}
-	else
-	{
-		echo "User can't access acp because group doesn't have permission or user doesn't have group.";
-	}
-	
-
-});
-
-Route::get('/slug', function() {
-
-
-
-	echo strtolower(str_slug('Jak sie macie?'));
-
-});
