@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends BaseModel
 {
+    public function latestPost()
+    {
+        // order by id, because when timestamp is same it will return first...
+        return $this->posts()->orderBy('updated_at', 'asc')->orderBy('id', 'desc')->first();
+    }
+
     /**
      * Topic posts
      *
@@ -28,6 +34,8 @@ class Topic extends BaseModel
             'message' => $message,
             'author_id' => $user->id
         ]);
+
+        $this->touch(); // update timestamps
 
         return $p;
     }

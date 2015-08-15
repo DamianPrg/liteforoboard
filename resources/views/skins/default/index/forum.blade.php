@@ -31,6 +31,14 @@
 
 			</div>
 
+			<div class='data-item-forum item-dynamic item'>
+
+				@if($cat->latestTopic() != null)
+					{!! $cat->latestTopic()->link() !!}, {!! $cat->latestTopic()->updated_at->diffForHumans() !!} <br>
+					by {{ $cat->latestTopic()->latestPost()->author->username  }}
+				@endif
+
+			</div>
 
 
 		</div>

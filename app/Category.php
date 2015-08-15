@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    public function latestTopic()
+    {
+        $topic = $this->topics()->orderBy('updated_at', 'desc')->first();
+
+       // dd($topic);
+
+        return $topic;
+    }
+
     //
     public function categories()
     {
