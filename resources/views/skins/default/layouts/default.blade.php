@@ -85,7 +85,7 @@
 							</div>
 
 							<div class='mid'>
-								<!-- middle -->
+								@include('skins.default.layouts.includes.footer-user-links')
 							</div>
 
 							<div class='right'>

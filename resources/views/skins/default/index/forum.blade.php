@@ -35,7 +35,9 @@
 
 				@if($cat->latestTopic() != null)
 					{!! $cat->latestTopic()->link() !!}, {!! $cat->latestTopic()->updated_at->diffForHumans() !!} <br>
-					by {{ $cat->latestTopic()->latestPost()->author->username  }}
+					by {!! $cat->latestTopic()->latestPost()->author->link()  !!}
+					@else
+					No topics
 				@endif
 
 			</div>

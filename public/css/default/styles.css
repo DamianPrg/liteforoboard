@@ -23,7 +23,7 @@ a:hover {
 	margin:0 auto;
 
 
-
+	max-width: 95%;
 
 }
 
@@ -225,6 +225,11 @@ a:hover {
 
 }
 
+.footer a {
+	color:rgba(255,255,255,0.8);
+	font-size:11px;
+}
+
 /*
 .footer .left, .mid, .right {
 
@@ -279,6 +284,15 @@ form > label {
 }
 
 .form-element .detail { text-align:right; padding-right:10px; }
+
+.form-element .detail {
+	text-align: left;
+}
+
+.form-element .input {
+	text-align: right;
+
+}
 
 /** box **/
 .box {
