@@ -22,6 +22,15 @@ class User extends Model
         return $this->hasOne('App\Group', 'id', 'group_id');
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post', 'author_id');
+    }
+
     /**
      * Check if user has group
      *
@@ -73,6 +82,9 @@ class User extends Model
         return false;
     }
 
+    /**
+     *
+     */
     public function updateSlug()
     {
         $this->update([
@@ -80,9 +92,15 @@ class User extends Model
         ]);
     }
 
+    /**
+     * @return string
+     */
     public function link()
     {
-        return "<a href='#'>" . $this->username . "</a>";
+       // return "<a href='#'>" . $this->username . "</a>";
+        $color = $this->group->color;
+
+        return "<a style='color: $color;' href='" . route('user.profile', [$this->slug]) . "'>" . $this->username . "</a>";
     }
 
     /**

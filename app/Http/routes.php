@@ -15,6 +15,7 @@
  * Install routes.
  */
 Route::get('/install', 'InstallController@install');
+Route::get('/reset', ['uses' => 'InstallController@reset', 'middleware' => 'AdminOnly']);
 
 /**
  * Index routes.
@@ -34,6 +35,7 @@ Route::group(['as' => 'auth.'], function () {
  * User routes
  */ 
 Route::group(['as' => 'user.'], function () {
+	Route::get('/profile/{slug}', ['as' => 'profile', 'uses' => 'UserController@show']);
 });
 
 /**

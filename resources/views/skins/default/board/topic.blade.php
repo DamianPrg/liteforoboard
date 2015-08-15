@@ -13,7 +13,13 @@
 	<div class='post-author'>
 		<div>
 			<div>{!!$post->author->link() !!}</div>
+			<div class='profile-pic'>
+				<img src='http://icons.iconarchive.com/icons/mahm0udwally/all-flat/128/User-icon.png'>
+			</div>
 			<div>{!!$post->author->group->badge() !!}</div>
+
+			<br>
+			<div>{{ $post->author->posts->count()  }} posts</div>
 			</div>
 		</div>
 

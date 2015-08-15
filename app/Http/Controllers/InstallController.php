@@ -29,4 +29,13 @@ class InstallController extends Controller
 
 		return redirect('/');
 	}
+
+	public function reset()
+	{
+		\Artisan::call('migrate:reset');
+		\Artisan::call('migrate');
+		\Artisan::call('db:seed');
+
+		return redirect('/');
+	}
 }
