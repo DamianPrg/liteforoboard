@@ -23,11 +23,13 @@ class Topic extends BaseModel
 
     public function addPost($message, User $user)
     {
-        $this->posts()->create([
+        $p = $this->posts()->create([
             'title' => $this->title,
             'message' => $message,
             'author_id' => $user->id
         ]);
+
+        return $p;
     }
 
     /**

@@ -54,4 +54,10 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 
 });
 
+/**
+ *
+ */
+Route::get('/404', function() {
+	return view('skins.default.pages.404');
+});
 

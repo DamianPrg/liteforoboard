@@ -29,7 +29,9 @@ class DefaultContentSeeder extends Seeder
 
         $cat2->addCategory('Test forum #1', 'This is test forum in cat 2');
 
-        $c->addTopic("Welcome!", "Welcome to LiteForo!", \App\User::find(1));
+        $t = $c->addTopic("Welcome!", "Welcome to LiteForo!", \App\User::find(1));
+
+        $t->addPost("This is reply made by Test account.", \App\User::find(2));
     }
 
     /**

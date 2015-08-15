@@ -49,7 +49,9 @@ class TopicController extends Controller
      */
     public function show($slug)
     {
-        $topic = Topic::where('slug', $slug)->firstOrFail();
+        $topic = Topic::where('slug', $slug)->first();
+
+        $this->checkFor404($topic);
 
         return view('skins.default.board.topic', ['topic' => $topic]);
     }

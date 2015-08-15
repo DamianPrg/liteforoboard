@@ -50,7 +50,9 @@ class CategoryController extends Controller
     public function show($slug)
     {
         //
-        $category = Category::where('slug', $slug)->firstOrFail();
+        $category = Category::where('slug', $slug)->first();
+
+        $this->checkFor404($category);
 
        // dd($category);
         return view('skins.default.board.category', ['category' => $category]);

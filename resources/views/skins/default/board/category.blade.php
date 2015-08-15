@@ -1,19 +1,22 @@
-@extends('skins.default.layouts.default')
+	@extends('skins.default.layouts.default')
 
-@section('wrapper-top')
+	@section('wrapper-top')
 
-    @endsection
+	@endsection
 
-@section('content')
+	@section('content')
 
-    <h3>{{ $category->title  }}</h3>
+	<h3>{{ $category->title  }}</h3>
 
-    @foreach($category->topics as $topic)
+	<div class='box'>
+		@foreach($category->topics as $topic)
 
-        <div>
-            {!! $topic->link()  !!}
-        </div>
+		<div>
+			<i class="fa fa-comments-o"></i>
+			{!! $topic->link()  !!}
+		</div>
 
-    @endforeach
+		@endforeach
+	</div>
 
-@endsection
+	@endsection

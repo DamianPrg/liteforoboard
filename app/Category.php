@@ -31,22 +31,23 @@ class Category extends Model
 
         foreach($this->topics as $tops)
         {
-            $num += $tops->count();
+
+                $num += $tops->posts->count();
+
         }
 
         return $num;
     }
 
-    /**
-     * @return int
-     */
     public function numReplies()
     {
         $num = 0;
 
         foreach($this->topics as $tops)
         {
-            $num += $tops->count() - 1;
+
+            $num += $tops->posts->count() - 1;
+
         }
 
         return $num;
