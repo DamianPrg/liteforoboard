@@ -25,9 +25,10 @@ class TopicController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create($slug)
     {
         //
+        dd($slug);
     }
 
     /**

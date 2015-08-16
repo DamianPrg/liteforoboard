@@ -18,6 +18,14 @@
 		<link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}">
 
 		<!-- css -->
+
+		<!-- js -->
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+		<!-- js -->
+
+		<script>
+			@yield('head.script')
+			</script>
 	</head>
 
 	<body>
@@ -94,7 +102,6 @@
 						</footer>
 					</div>
 
-					<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
 					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 					<script src="{{URL::asset('js/scripts.js')}}"></script>
 				</body>
