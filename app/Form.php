@@ -8,9 +8,13 @@ namespace App;
  */
 class Form
 {
+    protected $title = '';
+    protected $desc  = '';
     protected $route = '';
-    protected $type  = '';
     protected $source = '';
+
+    protected $detailAlignLeft = false;
+    protected $inputAlignLeft = false;
 
     public function __construct()
     {

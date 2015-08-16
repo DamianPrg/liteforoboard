@@ -8,15 +8,44 @@
 
 	<h3>{{ $category->title  }}</h3>
 
-	<div class='box'>
-		@foreach($category->topics as $topic)
+		{{-- pinned first --}}
+		@foreach($category->topics()->where('pinned', true)->orderBy('updated_at', 'desc')->get() as $topic)
+			@include('skins.default.board.includes.topic-row', [$topic])
+		@endforeach
 
-		<div>
-			<i class="fa fa-comments-o"></i>
+		@foreach($category->topics()->where('pinned', false)->orderBy('updated_at', 'desc')->get() as $topic)
+
+			@include('skins.default.board.includes.topic-row', [$topic])
+			{{--
+		<div class='row topic-row'>
+			<div class='row-fixed-column' style='font-size:16px;'>
+					<i class="fa fa-comments-o fa-fw"></i>
+
+					@if($topic->pinned)
+					<i class="fa fa-thumb-tack fa-fw" style="color:rgb(200,200,0);"></i>
+					@endif
+
+					@if($topic->locked)
+					<i class="fa fa-lock fa-fw"></i>
+
+				@endif
+				</div>
+
+			<div class='row-dynamic-column'>
 			{!! $topic->link()  !!}
+				</div>
+
+			<div class='row-fixed-column' style='max-width: 200px;'>
+				{{ $topic->posts()->count()-1  }} replies
+				</div>
+
+			<div class='row-fixed-column' style='max-width:200px;'>
+				{!! $topic->author->link() !!}, {!! $topic->created_at !!}
+				</div>
 		</div>
 
+--}}
 		@endforeach
-	</div>
+
 
 	@endsection

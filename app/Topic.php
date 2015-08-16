@@ -41,6 +41,24 @@ class Topic extends BaseModel
     }
 
     /**
+     * Pin/Unpin topic
+     * @param bool|true $v
+     */
+    public function pin($v = true)
+    {
+        $this->update(['pinned' => $v]);
+    }
+
+    /**
+     * Lock/Unlock topic
+     * @param bool|true $v
+     */
+    public function lock($v = true)
+    {
+        $this->update(['locked' => $v]);
+    }
+
+    /**
      * Update slug
      */
     public function updateSlug()

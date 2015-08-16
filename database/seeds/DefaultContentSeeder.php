@@ -32,6 +32,10 @@ class DefaultContentSeeder extends Seeder
         $t = $c->addTopic("Welcome!", "Welcome to LiteForo!", \App\User::find(1));
 
         $t->addPost("This is reply made by Test account.", \App\User::find(2));
+
+        // pin and lock topic
+        $t->pin();
+        $t->lock();
     }
 
     /**

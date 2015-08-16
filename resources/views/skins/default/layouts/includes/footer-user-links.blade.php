@@ -10,13 +10,19 @@
 AdminCP
 </a>
 
-<i class="fa fa-link fa-fw"></i> <a href='{{route('acp.dashboard')}}'>
-Site settings
-</a>
 
-<i class="fa fa-link fa-fw"></i> <a href='{{route('acp.dashboard')}}'>
-Reports
-</a>
+
 
 @endif
+
+
+    <div>
+        <div> <a href='{{url('/logout')}}'>Logout</a> </div>
+        </div>
+
+    @else
+
+   <div> <a href='{{url('/login')}}'>Sign In</a></div>
+   <div> <a href='#'>Sign Up</a> </div>
+
 @endif

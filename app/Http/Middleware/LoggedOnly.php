@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Auth;
 use Closure;
 
 /**
@@ -9,6 +10,12 @@ use Closure;
  */
 class LoggedOnly
 {
+    protected $auth = null;
+
+    public function __construct(Auth $auth)
+    {
+        $this->auth = $auth;
+    }
     /**
      * Handle an incoming request.
      *
@@ -18,6 +25,11 @@ class LoggedOnly
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if($this->auth->isUserLogged())
+        {
+            return $next($request);
+        }
+
+        return redirect('/login');
     }
 }

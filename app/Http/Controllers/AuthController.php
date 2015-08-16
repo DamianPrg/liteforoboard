@@ -29,7 +29,7 @@ class AuthController extends Controller
         if($this->auth->auth($username, $password))
         {
             // code, code...
-            return redirect('/profile');
+            return redirect('/');
         }
 
         return redirect('/login');
@@ -41,6 +41,6 @@ class AuthController extends Controller
 
         $this->auth->logout();
 
-        return redirect('/profile');
+        return redirect('/');
     }
 }

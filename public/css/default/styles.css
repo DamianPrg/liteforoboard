@@ -23,7 +23,7 @@ a:hover {
 	margin:0 auto;
 
 
-	max-width: 95%;
+	max-width: 1400px;
 
 }
 
@@ -382,4 +382,30 @@ form > label {
 .post-content {
 	flex:1;
 	-webkit-flex: 1;
+}
+
+/* rows */
+.row {
+	display: flex;
+	display: -webkit-flex;
+	width: auto;
+
+	margin:1px;
+}
+
+.row-dynamic-column {
+	flex:1;
+	-webkit-flex: 1;
+	padding:10px;
+
+}
+
+.row-fixed-column {
+	padding:10px;
+}
+
+.topic-row {
+	background: rgba(0,0,0,0.015);
+	border:1px solid rgba(0,0,0,0.05);
+	font-size:13px;
 }
