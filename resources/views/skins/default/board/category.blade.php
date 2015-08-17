@@ -49,3 +49,13 @@
 
 
 	@endsection
+
+	@section('wrapper-bottom-logged')
+		<div style='text-align:right;'>
+		<a class='btn btn-black' href='#'>Create topic</a>
+			</div>
+	@endsection
+
+	@section('wrapper-top-logged')
+		<a class='btn btn-black' href='#'>Create topic</a>
+	@endsection

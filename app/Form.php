@@ -71,6 +71,10 @@ class Form
         $this->source .= $this->base('', "<button class='btn btn-black' type='submit'>$title</button>");
     }
 
+    public function model($resource, $fields = [])
+    {
+    }
+
     public function getForm()
     {
         return view('skins.default.form', [
@@ -79,6 +83,16 @@ class Form
             'desc' => $this->desc,
             'form_source' => $this->source
 
+        ]);
+    }
+
+    public function getACPForm()
+    {
+        return view('skins.acp.form', [
+            'route' => route($this->route),
+            'name' => $this->title,
+            'desc' => $this->desc,
+            'form_source' => $this->source
         ]);
     }
 }

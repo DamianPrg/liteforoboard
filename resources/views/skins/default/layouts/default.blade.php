@@ -1,3 +1,4 @@
+@inject('auth', 'App\Auth')
 	<!DOCTYPE>
 	<html>
 	<head>
@@ -51,14 +52,20 @@
 			</nav>
 
 
-			
 
 
 
-			@yield('wrapper-top')
+
+			@if($auth->isUserLogged())
+				@yield('wrapper-top-logged')
+				@else
+				@yield('wrapper-top')
+				@endif
+
+
 
 			<div class='content'>
-				<div class='main'>
+				<div class='main' id='main_content'>
 					@yield('content')
 				</div>
 
@@ -69,7 +76,12 @@
 
 			<div clas='clearfix'></div>
 
+			@if($auth->isUserLogged())
+				@yield('wrapper-bottom-logged')
+			@else
 			@yield('wrapper-bottom')
+				@endif
+
 
 
 			

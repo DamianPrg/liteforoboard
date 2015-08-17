@@ -25,6 +25,7 @@
             <button type="submit" class="btn btn-info pull-right">Sign in</button>
         </div><!-- /.box-footer -->
     </form>
+
     @endsection
 
 @section('content_1')

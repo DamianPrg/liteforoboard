@@ -54,6 +54,19 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 
 	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
+	Route::get('form', function(\App\Form $form) {
+
+		$form->route = 'index';
+
+		$form->text('Site title', "Site's title", 'LiteForo Community', "Title");
+
+		$form->space();
+		$form->submit('Update');
+
+		return $form->getACPForm();
+
+	});
+
 });
 
 /**
@@ -63,3 +76,13 @@ Route::get('/404', function() {
 	return view('skins.default.pages.404');
 });
 
+/**
+ * Ajax routes
+ */
+/*
+Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function() {
+
+	Route::get('/fetch_index_main', ['as' => 'fetch_index_main']);
+
+});
+*/

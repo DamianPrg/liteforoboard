@@ -1,6 +1,26 @@
 @extends('skins.default.layouts.default')
 
+@section('head.script')
+
+	$(document).ready(function() {
+	// fetch content every 2 seconds
+	setInterval( function() {
+
+	$('#main_content').load( '{{route('index')}} #view' );
+
+
+
+
+
+	}, 3000);
+
+
+	});
+	@endsection
+
 @section('content')
+
+	<div id='view'>
 
 @foreach($categories as $category)
 
@@ -50,10 +70,12 @@
 
 </div>
 
+
 @endif
 
 @endforeach
 
+		</div>
 @endsection
 
 @section('side')
