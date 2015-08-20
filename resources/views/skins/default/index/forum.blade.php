@@ -3,16 +3,15 @@
 @section('head.script')
 
 	$(document).ready(function() {
-	// fetch content every 2 seconds
+	// refresh content every 30 seconds.
 	setInterval( function() {
 
-	$('#main_content').load( '{{route('index')}} #view' );
+		$('#main_content').fadeOut();
+		$('#main_content').load( '{{route('index')}} #view' );
+		$('#main_content').fadeIn();
 
 
-
-
-
-	}, 3000);
+	}, 30000);
 
 
 	});
@@ -46,12 +45,12 @@
 				<div class='muted-text'>{{$cat->desc}}</div>
 			</div>
 
-			<div class='data-item-forum item-dynamic item'>
-				<div>{!! $cat->numPosts()  !!}</div>
+			<div class='data-item-forum item-fixed item' style='width:100px;font-size:20px;font-weight:200;'>
+				<div><b style='font-weight:bold;'>{!! $cat->numPosts()  !!}</b> posts</div>
 
 			</div>
 
-			<div class='data-item-forum item-dynamic item'>
+			<div class='data-item-forum item-fixed item' style='width:250px;'>
 
 				@if($cat->latestTopic() != null)
 					{!! $cat->latestTopic()->link() !!}, {!! $cat->latestTopic()->updated_at->diffForHumans() !!} <br>

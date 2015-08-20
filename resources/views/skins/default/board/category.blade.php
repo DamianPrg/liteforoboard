@@ -7,7 +7,7 @@
 	@section('content')
 
 	<h3>{{ $category->title  }}</h3>
-
+	
 		{{-- pinned first --}}
 		@foreach($category->topics()->where('pinned', true)->orderBy('updated_at', 'desc')->get() as $topic)
 			@include('skins.default.board.includes.topic-row', [$topic])
@@ -51,11 +51,29 @@
 	@endsection
 
 	@section('wrapper-bottom-logged')
-		<div style='text-align:right;'>
-		<a class='btn btn-black' href='#'>Create topic</a>
+		<div style='text-align:right;margin:10px;'>
+			@if(1)
+				<a class='btn btn-danger btn' href='#'><i class="fa fa-lock"></i>
+					<i class="fa fa-plus"></i>
+ 					Create topic</a>
+
+			@else
+				<a class='btn btn-black' href='#'>Create topic</a>
+
+			@endif
 			</div>
 	@endsection
 
 	@section('wrapper-top-logged')
-		<a class='btn btn-black' href='#'>Create topic</a>
+
+		<div style='text-align:right;margin:10px;'>
+			@if(1)
+				<a class='btn btn-danger btn' href='#'><i class="fa fa-lock"></i>
+					Create topic</a>
+
+			@else
+				<a class='btn btn-black' href='#'>Create topic</a>
+
+			@endif
+		</div>
 	@endsection

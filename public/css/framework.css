@@ -1,0 +1,99 @@
+/**
+ * CSS Responsive framework
+ *
+ * Author: Damian Balandowski
+ * Project: LiteForo
+ */
+
+* {}
+body {}
+
+/**
+ * Flex content
+ */
+.flex-container {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.flex-container-center {
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.flex-fixed-item {
+    width: auto;
+}
+
+.flex-item-1 {
+    -webkit-flex: 1;
+}
+
+.flex-item-2 {
+    -webkit-flex: 2;
+}
+
+.flex-item-3 {
+    -webkit-flex: 3;
+}
+
+/**
+ *
+ */
+.space-inside {
+    padding: 10px;
+}
+
+.space-around {
+    margin: 10px;
+}
+
+.sm-text {
+    font-size:12px;
+}
+
+.text {
+    font-size:13px;
+}
+
+.lg-text {
+    font-size:14px;
+}
+
+/**
+ * Responsive box
+ */
+.box {
+
+}
+
+.box .box-header {
+
+}
+
+.box .box-content {
+
+}
+
+.box .box-footer {
+
+}
+
+/**
+ * Responsive form
+ */
+.form {
+
+}
+
+/** inline **/
+.form-inline {
+
+}
+
+/** vertical **/
+.form-vertical {
+
+}

@@ -79,10 +79,24 @@ Route::get('/404', function() {
 /**
  * Ajax routes
  */
-/*
+
 Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function() {
 
-	Route::get('/fetch_index_main', ['as' => 'fetch_index_main']);
+	/**
+	 * returns true is username exists.
+	 */
+	Route::get('username_taken', ['as' => 'usernameTaken', 'uses' => function(\Illuminate\Http\Request $request) {
+
+		$u = \App\User::where('username', $request->input('username'))->first();
+
+		if($u == null)
+		{
+			return response()->json(['result' => false]);
+		}
+
+		return response()->json(['result' => true]);
+
+	}]);
 
 });
-*/
+

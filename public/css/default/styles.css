@@ -333,6 +333,12 @@ form > label {
 
 .box-row {
 	display:-webkit-flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
 }
 
 .item {
@@ -430,6 +436,9 @@ form > label {
 		   background-color: #242424;
 		   border-color: #000000;
 	-webkit-font-smoothing: antialiased;
+	border:none;
+
+	font-weight: 200;
 
 }
 
@@ -439,7 +448,7 @@ form > label {
 .btn-black.active,
 .open .dropdown-toggle.btn-black {
 	color: #DBDBDB;
-	background-color: #262626;
+	background-color: #292929;
 	border-color: #000000;
 	-webkit-font-smoothing: antialiased;
 
@@ -473,10 +482,19 @@ fieldset[disabled] .btn-black.active {
 	-webkit-font-smoothing: antialiased;
 
 }
-
 .btn-black .badge {
 	color: #242424;
 	background-color: #DBDBDB;
 	-webkit-font-smoothing: antialiased;
 
+}
+
+
+.wrapper-margin {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+_tools {
+	margin-top:10px;
 }

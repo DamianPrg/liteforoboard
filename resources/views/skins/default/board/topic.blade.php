@@ -24,6 +24,10 @@
 		</div>
 
 	<div class='post-content'>
+		<div class='post-info' style='font-size:11px;color:rgba(0,0,0,0.35);' class='text-muted'>
+			{{ $post->created_at  }} / updated {{ $post->updated_at->diffForHumans() }}
+			</div>
+
 	{!! $post->message !!}
 		</div>
 </div>

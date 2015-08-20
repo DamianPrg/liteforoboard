@@ -64,14 +64,7 @@
 
 
 
-			<div class='_tools wrapper-margin'>
-				<a href='#' class='btn btn-black'><i class="fa fa-plus fa-fw"></i> Create Thread</a>
-			</div>
-
 			<div class='content'>
-
-
-
 				<div class='main' id='main_content'>
 					@yield('content')
 				</div>
