@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Auth;
+use App\Category;
 use App\Topic;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,8 @@ class TopicController extends Controller
     public function index()
     {
         //
+        $this->middleware('LoggedOnly', ['only' => 'store']);
+
     }
 
     /**
@@ -35,11 +39,27 @@ class TopicController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
+     * @param  \App\Auth $auth
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Auth $auth)
     {
         //
+        $title   = $request->input('title');
+        $message = $request->input('message');
+        $cat_id  = $request->input('cat_id');
+
+        // get category
+        $category = Category::find($cat_id);
+
+        $user = $auth->getLoggedUser();
+
+        if($category)
+        {
+            $t = $category->addTopic($title, $message, $user, false, false);
+        }
+
+        return redirect()->to('/');
     }
 
     /**

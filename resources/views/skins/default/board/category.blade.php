@@ -4,6 +4,10 @@
 
 	@endsection
 
+@section('tools')
+			 <a href='#' class='btn btn-black'>Create Topic</a>
+@endsection
+
 	@section('content')
 
 	<h3>{{ $category->title  }}</h3>
