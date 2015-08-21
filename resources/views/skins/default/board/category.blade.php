@@ -4,8 +4,8 @@
 
 	@endsection
 
-@section('tools')
-			 <a href='#' class='btn btn-black'>Create Topic</a>
+@section('tools-logged')
+			 <a href='{{ route('board.topic.create', [$category]) }}' class='btn btn-black'>Create Topic</a>
 @endsection
 
 	@section('content')
@@ -17,7 +17,7 @@
 			@include('skins.default.board.includes.topic-row', [$topic])
 		@endforeach
 
-		@foreach($category->topics()->where('pinned', false)->orderBy('updated_at', 'desc')->get() as $topic)
+		@foreach($topics as $topic)
 
 			@include('skins.default.board.includes.topic-row', [$topic])
 			{{--
@@ -51,33 +51,7 @@
 --}}
 		@endforeach
 
+		{!! $topics->render() !!}
 
 	@endsection
 
-	@section('wrapper-bottom-logged')
-		<div style='text-align:right;margin:10px;'>
-			@if(1)
-				<a class='btn btn-danger btn' href='#'><i class="fa fa-lock"></i>
-					<i class="fa fa-plus"></i>
- 					Create topic</a>
-
-			@else
-				<a class='btn btn-black' href='#'>Create topic</a>
-
-			@endif
-			</div>
-	@endsection
-
-	@section('wrapper-top-logged')
-
-		<div style='text-align:right;margin:10px;'>
-			@if(1)
-				<a class='btn btn-danger btn' href='#'><i class="fa fa-lock"></i>
-					Create topic</a>
-
-			@else
-				<a class='btn btn-black' href='#'>Create topic</a>
-
-			@endif
-		</div>
-	@endsection

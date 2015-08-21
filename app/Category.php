@@ -10,7 +10,7 @@ class Category extends Model
     {
         $topic = $this->topics()->orderBy('updated_at', 'desc')->first();
 
-       // dd($topic);
+       //dd($topic);
 
         return $topic;
     }

@@ -53,7 +53,7 @@
 			<div class='data-item-forum item-fixed item' style='width:250px;'>
 
 				@if($cat->latestTopic() != null)
-					{!! $cat->latestTopic()->link() !!}, {!! $cat->latestTopic()->updated_at->diffForHumans() !!} <br>
+					{!! $cat->latestTopic()->link() !!}, {!! $cat->latestTopic()->latestPost()->updated_at->diffForHumans() !!} <br>
 					by {!! $cat->latestTopic()->latestPost()->author->link()  !!}
 					@else
 					No topics

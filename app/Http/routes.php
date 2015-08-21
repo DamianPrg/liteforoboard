@@ -45,6 +45,10 @@ Route::group(['as' => 'board.'], function () {
 	Route::get('/category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
 
 	Route::get('/topic/{slug}', ['as' => 'topic.show', 'uses' => 'TopicController@show']);
+	Route::get('/topic/create/{cat_id}', ['as' => 'topic.create', 'uses' => 'TopicController@create']);
+	Route::post('/topic/store/{cat_id}', ['as' => 'topic.store', 'uses' => 'TopicController@store']);
+
+	Route::post('/post/store/{topic_id}', ['as' => 'post.store', 'uses' => 'PostController@store']);
 });
 
 /**

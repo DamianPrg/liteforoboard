@@ -57,7 +57,8 @@
 @endforeach
 
 <br>
-<form id='replyForm'>
+@if($auth->isUserLogged())
+<form id='replyForm' method='post' action="{{ route('board.post.store', [$topic->id]) }}">
 <div class="box post" id="replyFormBox" style="border: 1px solid rgba(150,0,0,0.35);">
 
 	<div class='post-author'>
@@ -79,10 +80,14 @@
 		</div>
 
 		<br>
-		<textarea></textarea>
+		<textarea name='message'></textarea>
+<br>
+		<button type='submit' class='btn btn-primary btn-sm'>Reply</button>
 	</div>
 
 	</div>
+
 </form>
+	@endif
 @endsection
 

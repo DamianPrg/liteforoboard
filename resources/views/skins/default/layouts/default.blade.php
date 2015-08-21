@@ -66,7 +66,15 @@
 		<div class='_secondaryMenu' style='padding:10px; text-align:right;'>
 		<div class='_tools wrapper-margin'>
 			<!-- <a href='#' class='btn btn-black'><i class="fa fa-plus fa-fw"></i> Create Thread</a> -->
-			@yield('tools')
+			@if($auth->isUserLogged())
+				@yield('tools-logged')
+
+				@if($auth->getLoggedUser()->isStaff())
+					@yield('tools-staff')
+				@endif
+			@else
+				@yield('tools')
+			@endif
 		</div>
 		</div>
 

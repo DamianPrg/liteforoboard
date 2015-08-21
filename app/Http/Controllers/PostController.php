@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Auth;
-use App\Category;
 use App\Topic;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TopicController extends Controller
+class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('LoggedOnly', ['only' => ['create', 'store']]);
-
+        $this->middleware('LoggedOnly', ['only' => 'store']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +23,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -32,54 +31,25 @@ class TopicController extends Controller
      *
      * @return Response
      */
-    public function create($cat_id, Auth $auth)
+    public function create()
     {
-        return view('skins.default.board.topic.create', ['category' => Category::find($cat_id)]);
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
-     * @param  \App\Auth $auth
      * @return Response
      */
-    public function store(Request $request, $cat_id, Auth $auth)
+    public function store(Request $request, $topic_id, Auth $auth)
     {
+        //
+        $t = Topic::find($topic_id);
 
-        $title   = $request->input('title');
-        $message = $request->input('message');
+        $t->addPost($request->input('message'), $auth->getLoggedUser());
 
-
-        // get category
-        $category = Category::find($cat_id);
-
-        $user = $auth->getLoggedUser();
-
-        $pin_ = false;
-        $lock_ = false;
-
-        if($request->input('pin') == true && $user->isStaff())
-        {
-            $pin_ = true;
-        }
-
-        if($request->input('lock') == true && $user->isStaff())
-        {
-            $lock_ = true;
-        }
-
-
-        if($category)
-        {
-            $t = $category->addTopic($title, $message, $user, $pin_, $lock_);
-
-            return redirect()->to(route('board.topic.show', [$t->slug]));
-
-        }
-
-        return redirect('/');
-
+        return redirect(route('board.topic.show', [$t->slug]));
     }
 
     /**
@@ -88,13 +58,9 @@ class TopicController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $topic = Topic::where('slug', $slug)->first();
-
-        $this->checkFor404($topic);
-
-        return view('skins.default.board.topic', ['topic' => $topic]);
+        //
     }
 
     /**

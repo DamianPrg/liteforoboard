@@ -22,6 +22,8 @@ class CreateCategoriesTable extends Migration
             $table->string('redirect_url')->default('#');
             $table->boolean('display_announcement')->default(false);
             $table->text('announcement_message')->nullable();
+            $table->boolean('locked')->default(false);
+            $table->integer('num_posts_required')->default(-1);
             $table->timestamps();
         });
     }

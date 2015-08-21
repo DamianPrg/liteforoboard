@@ -17,4 +17,9 @@ class Post extends BaseModel
         return $this->belongsTo('App\Topic', 'topic_id');
     }
 
+    protected $fillable = ['title', 'message', 'author_id'];
+    protected $guarded = [];
+
+
+
 }

@@ -52,10 +52,14 @@ class CategoryController extends Controller
         //
         $category = Category::where('slug', $slug)->first();
 
+        $topics = $category->topics()->where('pinned',false)->orderBy('updated_at', 'desc')->paginate();
+
+        $pinned_topics = $category->topics()->where('pinned', true)->orderBy('updated_at', 'desc')->get();
+
         $this->checkFor404($category);
 
        // dd($category);
-        return view('skins.default.board.category', ['category' => $category]);
+        return view('skins.default.board.category', ['category' => $category, 'topics' => $topics, 'pinned_topics' => $pinned_topics]);
     }
 
     /**

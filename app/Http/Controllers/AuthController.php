@@ -29,7 +29,7 @@ class AuthController extends Controller
         if($this->auth->auth($username, $password))
         {
             // code, code...
-            return redirect('/');
+            return redirect('/?as=' . $username);
         }
 
         return redirect('/login');

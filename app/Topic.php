@@ -8,8 +8,8 @@ class Topic extends BaseModel
 {
     public function latestPost()
     {
-        // order by id, because when timestamp is same it will return first...
-        return $this->posts()->orderBy('updated_at', 'asc')->orderBy('id', 'desc')->first();
+
+        return $this->posts()->orderBy('updated_at', 'desc')->first();
     }
 
     /**
@@ -27,7 +27,7 @@ class Topic extends BaseModel
         return "<a href='" . route('board.topic.show', [$this->slug]) ."'>" . $this->title . "</a>";
     }
 
-    public function addPost($message, User $user)
+    public function addPost($message, $user)
     {
         $p = $this->posts()->create([
             'title' => $this->title,
@@ -67,4 +67,9 @@ class Topic extends BaseModel
             'slug' => $this->id . '-' . strtolower(str_slug($this->title))
         ]);
     }
+
+    protected $fillable = ['title', 'slug', 'pinned', 'locked'];
+
+    protected $guarded = [];
+
 }
