@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $this->checkFor404($user);
 
-        return view('skins.default.user.profile', ['user' => $user]);
+        return view('skins.default.user.profile', ['user' => $user, 'latest_posts' => $user->getLatestPosts(10)]);
     }
 
     /**

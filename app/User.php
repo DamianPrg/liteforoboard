@@ -31,6 +31,11 @@ class User extends Model
         return $this->hasMany('App\Post', 'author_id');
     }
 
+    public function getLatestPosts($num = 10)
+    {
+        return $this->posts()->orderBy('updated_at', 'desc')->take($num)->get();
+    }
+
     /**
      * Check if user has group
      *
