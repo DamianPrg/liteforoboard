@@ -618,3 +618,7 @@ fieldset[disabled] .btn-black.active {
 	min-width:120px;
 	margin:0 auto;
 }
+
+.profile-pic, .profile-pic img {
+	border-radius: 30px;
+}

@@ -3,17 +3,17 @@
  */
  .table-post {
  	padding:10px;
- 	border:1px solid green;
+ 	
  }
 
  .row-post {
- 	background:red;
-     min-height:200px;
+
+     height:auto;
  }
 
  .post-author-col {
- 	background: green;
- 	width: 200px;
+
+ 	width: auto;
  }
 
  .message-col {

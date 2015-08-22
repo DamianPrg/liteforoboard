@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // allow php in blade views
+        \Blade::extend(function($value) {
+            return preg_replace('/\{\?(.+)\?\}/', '<?php ${1} ?>', $value);
+        });
     }
 
     /**
