@@ -29,7 +29,11 @@
 	@endsection
 
 @section('tools')
+@if($topic->locked == false || $auth->isUserLogged())
+@if($auth->getLoggedUser()->isStaff())
 			 <a href='#replyFormBox' class='btn btn-black show-reply-form'>Add reply</a>
+@endif
+@endif
 @endsection
 
 @section('tools-staff')
@@ -85,7 +89,7 @@
 {!! $posts->render() !!}
 
 <br>
-@if($auth->isUserLogged())
+@if($auth->isUserLogged() && $topic->locked == false)
 <form id='replyForm' method='post' action="{{ route('board.post.store', [$topic->id]) }}">
 <div class="box post" id="replyFormBox" style="border: 1px solid rgba(150,0,0,0.35);">
 

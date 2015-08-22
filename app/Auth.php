@@ -17,6 +17,18 @@ class Auth
         return null;
     }
 
+    public function getUser()
+    {
+    	if( $this->isUserLogged() )
+        {
+            return User::find(session('user_id'));
+
+
+        }
+
+        return null;
+    }
+
     public function isUserLogged()
     {
 //        dd(session('user_id'));
@@ -36,6 +48,41 @@ class Auth
     public function authAs($id = -1)
     {
         session(['user_id' => $id]);
+    }
+
+    public function isAdmin()
+    {
+    	if($this->isUserLogged())
+    	{	
+    		if($this->getLoggedUser()->isAdmin())
+    		{
+    			return true;
+    		}
+    	}
+
+    	return false;
+    }
+
+    public function isGuest()
+    {
+    	if($this->isUserLogged())
+    	{
+    		return false;
+    	}
+
+    	return true;
+    }
+
+
+
+    public function isStaff()
+    {
+    	if($this->isAdmin())
+    	{
+    		return true;
+    	}
+
+    	return false;
     }
 
     /**

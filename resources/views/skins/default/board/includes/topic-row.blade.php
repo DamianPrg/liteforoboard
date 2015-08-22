@@ -1,3 +1,4 @@
+@inject('auth', 'App\Auth')
 <div class='row topic-row'>
     <div class='row-fixed-column' style='font-size:16px;'>
         <i class="fa fa-comments-o fa-fw"></i>
@@ -24,6 +25,7 @@
         {!! $topic->author->link() !!}, {!! $topic->created_at !!}
     </div>
 
+    @if($auth->isStaff())
     <div class='row-fixed-column'>
         <div class="btn-group btn-group-sm">
             <button id='remove' type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" data-original-title="Remove topict"><i class='fa fa-remove fa-fw'></i></button>
@@ -31,5 +33,6 @@
             </button>
             <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Lock/Unlock topic"><i class='fa fa-lock fa-fw'></i></button>
         </div>
-        </div>
+    </div>
+        @endif
 </div>
