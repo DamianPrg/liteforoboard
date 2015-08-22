@@ -77,13 +77,17 @@
 @if($auth->isUserLogged() && $topic->locked == false)
 <div style='margin-top:10px;'>
     <textarea name='message'></textarea>
-    <button type='submit' class='btn btn-primary'>Reply</button>
+    <br>
+    <button type='submit' class='btn btn-black btn-sm'>Reply</button>
 
 </div>
     @elseif($auth->isAdmin() && $topic->locked == true)
+        <div style='margin-top:10px;'>
         <textarea name='message'></textarea>
-        </div>
-    <button type='submit' class='btn btn-primary'>Add Reply</button>
+
+            <br>
+    <button type='submit' class='btn btn-black btn-sm'>Add Reply</button>
+    </div>
 @endif
 </form>
 
