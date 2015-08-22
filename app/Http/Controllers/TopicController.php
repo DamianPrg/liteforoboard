@@ -15,7 +15,7 @@ class TopicController extends Controller
     public function __construct()
     {
         $this->middleware('LoggedOnly', ['only' => ['create', 'store']]);
-        $this->middleware('StaffOnly', ['only' => ['pin', 'lock']]);
+        $this->middleware('StaffOnly', ['only' => ['pin', 'lock', 'destroy']]);
 
     }
     /**
@@ -99,7 +99,7 @@ class TopicController extends Controller
 
         $this->checkFor404($topic);
 
-        return view('skins.default.board.topic', ['topic' => $topic, 'posts' => $posts]);
+        return view('skins.default.board.topic.show', ['topic' => $topic, 'posts' => $posts]);
     }
 
     /**

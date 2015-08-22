@@ -27,7 +27,12 @@ body {}
     width: auto;
 }
 
-
+.flex-item-padding {
+	padding:5px;
+}
+.flex-item-padding-left {
+	padding-left: 5px;
+}
 
 .flex-item,
 .flex-item-1 {
@@ -53,7 +58,6 @@ body {}
 .flex-item-right {
     text-align:right;
 }
-
 
 /**
  *
@@ -90,6 +94,9 @@ body {}
 
 
 
+/**
+ * Use them to style text. You can override these classes in other css file for different styles.
+ */
 .sm-text {
     font-size:12px;
 }
@@ -102,6 +109,18 @@ body {}
     font-size:14px;
 }
 
+.text-light {
+	color: rgb(100,100,100);
+}
+
+.text-dark {
+	color: rgb(20,20,20);
+}
+
+.text {
+	color: rgb(40,40,40);
+}
+
 /**
  * Responsive box
  */
@@ -111,20 +130,20 @@ body {}
     border:1px solid rgba(0,0,0,0.2);
 }
 
-.fbox .box-header {
+.fbox-header {
     background:rgba(0,0,0,0.8);
     padding:7px;
     color:rgba(255,255,255,0.5);
     font-size:13px;
 }
 
-.fbox .box-content {
+.fbox-content {
     padding:5px;
     background:rgba(0,0,0,0.05);
 
 }
 
-.fbox .box-footer {
+.fbox-box-footer {
 
 }
 
@@ -150,4 +169,34 @@ input[type=text], input[type=email], input[type=password] {
     padding:5px;
     border-radius:3px;
     border:1px solid rgba(0,0,0,0.1);
+}
+
+/** div tables
+	note: use them with correct flex classes
+
+	example:
+	<div class='table'>
+		<div class='flex-container flex-container-center row'>
+			<div class='flex-item col'>
+				Name
+			</div>
+			<div class='flex-item col col-age'> // add your custom css classes to make columns like different. 
+				20
+			</div>
+		</div>
+	</div>
+ **/
+.table {
+
+}
+
+.row {
+	height: 24px;
+}
+
+.col {
+
+}
+.col-padding {
+	padding:5px;
 }

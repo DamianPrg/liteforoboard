@@ -20,6 +20,8 @@
 
     <link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}">
     <link type="text/css" rel="stylesheet" href="{{URL::asset('css/framework.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{URL::asset('css/base.css')}}">
+
 
 
     <!-- css -->

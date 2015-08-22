@@ -83,7 +83,7 @@ class Group extends Model
 	public function badge()
 	{
 		//return "<div style='text-align:center;width:100%;font-size:12px;height:20px;line-height:20px;border-radius:2px;border:1px solid rgba(0,0,0,0.2);color:rgba(255,255,255,0.7);background:$this->color;'>$this->name</div>";
-		return "<div style='text-align:center;width:100%;font-size:12px;height:20px;line-height:20px;border-radius:2px;border:1px solid rgba(0,0,0,0.2);color:rgba(255,255,255,0.5);background:$this->color;'>$this->name</div>";
+		return "<div style='text-align:center;width:100%;font-size:12px;height:24px;line-height:24px;border-radius:2px;border:1px solid rgba(0,0,0,0.2);color:rgb(250,250,250);text-shadow:0px -1px 1px rgba(0,0,0,0.5);background:$this->color;'>$this->name</div>";
 
 	}
 
