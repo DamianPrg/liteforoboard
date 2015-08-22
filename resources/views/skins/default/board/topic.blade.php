@@ -12,12 +12,36 @@
 
 	});
 
+	$('#pin').click(function() {
+
+		$.ajax({
+  url: "{{ route('board.topic.pin', [true, $topic->id]) }}",
+  context: document.body
+}).done(function() {
+ // $( this ).addClass( "done" );
+ alert('Pinned!');
+});
+
+	});
+
 	});
 
 	@endsection
 
 @section('tools')
 			 <a href='#replyFormBox' class='btn btn-black show-reply-form'>Add reply</a>
+@endsection
+
+@section('tools-staff')
+<div class='dropdown'>
+			 <button data-toggle="dropdown" class='btn btn-primary dropdown-toggle'>Moderation <span class='caret'></span></button>
+
+			 <ul class='dropdown-menu dropdown-menu right'>
+			 <li><a id='pin' href='#'>Pin</a></li>
+			 <li><a href='#'>Lock</a></li>
+			 </ul>
+
+			 </div>
 @endsection
 
 @section('content')

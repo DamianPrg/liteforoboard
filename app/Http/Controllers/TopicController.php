@@ -15,6 +15,7 @@ class TopicController extends Controller
     public function __construct()
     {
         $this->middleware('LoggedOnly', ['only' => ['create', 'store']]);
+        $this->middleware('StaffOnly', ['only' => ['pin', 'lock']]);
 
     }
     /**
@@ -129,5 +130,19 @@ class TopicController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pin($topic_id, $value = true)
+    {
+        $topic = Topic::find($topic_id);
+
+        $topic->update(['pinned' => $value]);
+    }
+
+    public function lock($topic_id, $value = true)
+    {
+        $topic = Topic::find($topic_id);
+
+        $topic->update(['locked' => $value]);
     }
 }

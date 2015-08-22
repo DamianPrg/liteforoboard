@@ -17,6 +17,8 @@
 	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 
 	<link type="text/css" rel="stylesheet" href="{{URL::asset('css/default/styles.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{URL::asset('css/framework.css')}}">
+
 
 	<!-- css -->
 
@@ -24,8 +26,14 @@
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
 	<!-- js -->
 
+	<script src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
+
+
 	<script>
 		@yield('head.script')
+
+
+
 		</script>
 </head>
 
@@ -144,5 +152,12 @@
 
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 				<script src="{{URL::asset('js/scripts.js')}}"></script>
-			</body>
+
+	<script>
+		CKEDITOR.replace('message',  { removePlugins : 'elementspath' });
+		CKEDITOR.on('instanceReady', function (e) {
+			$('#cke_1_top').css('background','#eee');
+		});
+		</script>
+</body>
 			</html>

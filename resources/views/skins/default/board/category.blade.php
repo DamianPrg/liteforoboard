@@ -5,7 +5,7 @@
 	@endsection
 
 @section('tools-logged')
-			 <a href='{{ route('board.topic.create', [$category]) }}' class='btn btn-black'>Create Topic</a>
+			 <a href='{{ route('board.topic.create', [$category]) }}' class='btn btn-core'>Create Topic</a>
 @endsection
 
 	@section('content')
