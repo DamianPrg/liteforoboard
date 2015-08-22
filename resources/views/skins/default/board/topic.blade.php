@@ -34,7 +34,7 @@
 
 @section('tools-staff')
 <div class='dropdown'>
-			 <button data-toggle="dropdown" class='btn btn-primary dropdown-toggle'>Moderation <span class='caret'></span></button>
+			 <button data-toggle="dropdown" class='btn btn-default btn-sm'>Moderation <span class='caret'></span></button>
 
 			 <ul class='dropdown-menu dropdown-menu right'>
 			 <li><a id='pin' href='#'>Pin</a></li>
@@ -50,7 +50,7 @@
 
 
 {{-- posts --}}
-@foreach($topic->posts as $post)
+@foreach($posts as $post)
 
 <div class='post box'>
 
@@ -79,6 +79,10 @@
 
 
 @endforeach
+
+<br>
+
+{!! $posts->render() !!}
 
 <br>
 @if($auth->isUserLogged())

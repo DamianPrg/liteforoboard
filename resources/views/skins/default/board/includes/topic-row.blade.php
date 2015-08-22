@@ -26,10 +26,10 @@
 
     <div class='row-fixed-column'>
         <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" data-original-title="Tooltip on left"><i class='fa fa-remove fa-fw'></i></button>
-            <button type="button" class="btn btn-default"><i class="fa fa-thumb-tack"></i>
+            <button id='remove' type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" data-original-title="Remove topict"><i class='fa fa-remove fa-fw'></i></button>
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Pin/Unpin topic"><i class="fa fa-thumb-tack"></i>
             </button>
-            <button type="button" class="btn btn-default"><i class='fa fa-lock fa-fw'></i></button>
+            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Lock/Unlock topic"><i class='fa fa-lock fa-fw'></i></button>
         </div>
         </div>
 </div>

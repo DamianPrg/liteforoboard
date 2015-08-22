@@ -45,7 +45,7 @@ class TopicController extends Controller
      * @param  \App\Auth $auth
      * @return Response
      */
-    public function store(Request $request, $cat_id, Auth $auth)
+    public function store(Requests\StoreTopicRequest $request, $cat_id, Auth $auth)
     {
 
         $title   = $request->input('title');
@@ -93,9 +93,13 @@ class TopicController extends Controller
     {
         $topic = Topic::where('slug', $slug)->first();
 
+        $posts = Topic::where('slug', $slug)->first()->posts()->paginate();
+
+       // dd($posts);
+
         $this->checkFor404($topic);
 
-        return view('skins.default.board.topic', ['topic' => $topic]);
+        return view('skins.default.board.topic', ['topic' => $topic, 'posts' => $posts]);
     }
 
     /**
@@ -130,6 +134,9 @@ class TopicController extends Controller
     public function destroy($id)
     {
         //
+        $topic = Topic::find($id);
+
+        $topic->delete();
     }
 
     public function pin($topic_id, $value = true)

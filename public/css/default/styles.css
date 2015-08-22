@@ -603,3 +603,15 @@ fieldset[disabled] .btn-black.active {
 	-webkit-font-smoothing: antialiased;
 
 }
+
+.navbar .nav > li {
+
+	width: 120px;
+}
+
+.dropdown-menu {
+	display:none;
+	width:120px;
+	min-width:120px;
+	margin:0 auto;
+}

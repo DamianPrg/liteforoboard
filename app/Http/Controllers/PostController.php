@@ -42,7 +42,7 @@ class PostController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request, $topic_id, Auth $auth)
+    public function store(Requests\StorePostRequest $request, $topic_id, Auth $auth)
     {
         //
         $t = Topic::find($topic_id);
