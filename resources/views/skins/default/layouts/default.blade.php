@@ -125,6 +125,8 @@
         </aside>
     </div>
 
+    @yield('bottom')
+
     <div clas='clearfix'></div>
 
     <div class='_secondaryMenu' style='padding:10px; text-align:right;'>

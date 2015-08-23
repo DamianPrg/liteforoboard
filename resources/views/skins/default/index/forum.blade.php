@@ -81,36 +81,7 @@
 
 	<br>
 
-		<div class='fbox-alt'>
-			<div class='fbox-header-alt'>
-				Forum Statistics
-				</div>
 
-			<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
-
-					<span class='badge'>
-						{{ \App\User::all()->count() }} users
-						</span>
-
-				<span class='badge'>
-					{{ \App\Post::all()->count() }} posts
-					</span>
-
-				<span class='badge'>
-					{{ \App\Topic::all()->count()  }} topics
-					</span>
-
-				<br>
-
-				<i>Online users (15 minutes)</i>:
-
-				@foreach(\App\User::where('online', true)->get() as $ouser)
-	{!! $ouser->link() !!},
-					@endforeach
-
-				</div>
-
-		</div>
 @endsection
 
 @section('side')
@@ -172,6 +143,39 @@
 
 
 @endsection
+
+@section('bottom')
+	<div class='fbox-alt'>
+		<div class='fbox-header-alt'>
+			Forum Statistics
+		</div>
+
+		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
+
+					<span class='badge'>
+						{{ \App\User::all()->count() }} users
+						</span>
+
+				<span class='badge'>
+					{{ \App\Post::all()->count() }} posts
+					</span>
+
+				<span class='badge'>
+					{{ \App\Topic::all()->count()  }} topics
+					</span>
+
+			<br>
+
+			<i>Online users (15 minutes)</i>:
+
+			@foreach(\App\User::where('online', true)->get() as $ouser)
+				{!! $ouser->link() !!},
+			@endforeach
+
+		</div>
+
+	</div>
+	@endsection
 
 @section('links-left')
 <nav>
