@@ -2,10 +2,11 @@ $(document).ready(function() {
 
 
 
+    /*
     if ( $('.side').children().length == 0 ) {
         // div has no other tags inside it
         $('.side').hide();
-    }
+    }*/
 
 
         // http://stackoverflow.com/questions/1274430/using-jquery-within-onclick

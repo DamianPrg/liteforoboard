@@ -6,9 +6,9 @@
 	// refresh content every 30 seconds.
 	setInterval( function() {
 
-		$('#main_content').fadeOut();
+		//$('#main_content').fadeOut();
 		$('#main_content').load( '{{route('index')}} #view' );
-		$('#main_content').fadeIn();
+		//$('#main_content').fadeIn();
 
 
 	}, 30000);
@@ -67,18 +67,65 @@
 
 	</div>
 
-</div>
 
+
+</div>
 
 @endif
 
 @endforeach
 
 		</div>
+
+	<br>
+
+		<div class='fbox-alt'>
+			<div class='fbox-header-alt'>
+				Forum Statistics
+				</div>
+
+			<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
+
+					<span class='badge'>
+						{{ \App\User::all()->count() }} users
+						</span>
+
+				<span class='badge'>
+					{{ \App\Post::all()->count() }} posts
+					</span>
+
+				<span class='badge'>
+					{{ \App\Topic::all()->count()  }} topics
+					</span>
+
+				</div>
+
+		</div>
 @endsection
 
 @section('side')
-This is side.
+
+	<div class='fbox-alt'>
+		<div class='fbox-header-alt'>
+			Recent posts
+		</div>
+
+		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
+
+			@foreach(\App\Post::orderBy('updated_at', 'desc')->take(10)->get() as $recent_posts)
+				<div>
+						{!!  $recent_posts->topic->link() !!}
+						by {!! $recent_posts->author->link() !!}
+					<br>
+					{{ $recent_posts->updated_at->diffForHumans()  }}
+					</div>
+				<br>
+			@endforeach
+
+		</div>
+
+	</div>
+
 @endsection
 
 @section('links-left')
