@@ -47,7 +47,7 @@ class UpdateUsersOnlineStatuses
         {
             if($online_user->isInactive())
             {
-                
+
                 ///echo "jest: " . $online_user->username;
                 $online_user->update(['online' => false]);
             }

@@ -131,8 +131,9 @@ class Auth
     public function logout()
     {
         $user = User::find(session('user_id'));
-        $user->online = true;
-        $user->save();
+
+
+        $user->update(['online' => false]);
 
         \Session::forget('user_id');
     }

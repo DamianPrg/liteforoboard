@@ -2,8 +2,9 @@
 
 @section('head.script')
 
+	/*
 	$(document).ready(function() {
-	// refresh content every 30 seconds.
+
 	setInterval( function() {
 
 		//$('#main_content').fadeOut();
@@ -15,6 +16,7 @@
 
 
 	});
+	*/
 	@endsection
 
 @section('content')
@@ -122,11 +124,16 @@
 		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
 
 			@foreach(\App\Topic::orderBy('created_at', 'desc')->take(5)->get() as $recent_topic)
-				<div>
+				<div style='background: rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:2px;padding:5px;'>
+					<div style='text-align:left;'>
 					{!!  $recent_topic->link() !!}
+						</div>
+					<div style='text-align:left;'>
 					by {!! $recent_topic->author->link() !!}
-					<br>
+						</div>
+					<div style='text-align:right;'>
 					{{ $recent_topic->created_at->diffForHumans()  }}
+						</div>
 				</div>
 				<br>
 			@endforeach
@@ -145,11 +152,16 @@
 		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
 
 			@foreach(\App\Post::orderBy('updated_at', 'desc')->take(10)->get() as $recent_posts)
-				<div>
+				<div style='background: rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:2px;padding:5px;'>
+					<div style='text-align:left;'>
 						{!!  $recent_posts->topic->link() !!}
+						</div>
+					<div style='text-align:left;'>
 						by {!! $recent_posts->author->link() !!}
-					<br>
+						</div>
+					<div style='text-align:right;'>
 					{{ $recent_posts->updated_at->diffForHumans()  }}
+						</div>
 					</div>
 				<br>
 			@endforeach
@@ -157,7 +169,6 @@
 		</div>
 
 	</div>
-
 
 
 @endsection

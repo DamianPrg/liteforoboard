@@ -68,14 +68,21 @@
 					<a data-toggle="dropdown" href='#'>{{ $auth->getLoggedUser()->username }}</a>
 
 					<ul class='dropdown-menu' style='padding:0;margin:0;text-align: center;'>
+                        @if($auth->isAdmin())
                         <li><a href='{{route('acp.dashboard')}}'>
                                 AdminCP
                             </a></li>
+                        @endif
                         <li>
                             <a href='{{url('/logout')}}'>Logout</a>
                         </li>
                     </ul>
 				</span>
+
+            @else
+
+            <a href='{{url('/login')}}'>Sign In</a>
+            <a href='#'>Sign Up</a>
 
         @endif
 
@@ -144,17 +151,12 @@
                 <div>
                     <i class='fa fa-fw'></i>
                     <a href='{{route('index')}}'>Forums</a></div>
-                <div>
-                    <i class='fa fa-fw'></i>
-                    <a href='#'>Staff</a></div>
-                <div>
-                    <i class='fa fa-fw'></i>
-                    <a href='#'>Contact</a></div>
+
             </nav>
         </div>
 
         <div class='mid'>
-            @include('skins.default.layouts.includes.footer-user-links')
+
         </div>
 
         <div class='right'>
