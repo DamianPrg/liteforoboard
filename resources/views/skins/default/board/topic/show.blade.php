@@ -1,7 +1,7 @@
 @inject('auth', 'App\Auth')
 @extends('skins.default.layouts.default')
 
-@section('head.title') {!! $topic->title !!} @endsection
+@section('head.title') {!! $topic->title !!} - {{ $topic->category->title }} @endsection
 
 {? $last_post_author = -1 ?}
 @section('content')

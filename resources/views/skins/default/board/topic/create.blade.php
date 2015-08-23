@@ -4,6 +4,12 @@
 
 @section('content')
 
+    <ol class="breadcrumb">
+        <li>Forums</li>
+        <li>{!! $category->link() !!}</li>
+        <li class='active'><a href="#">Create Topic</a></li>
+    </ol>
+
     <h3>Create topic in {{ $category->title  }}</h3>
 
     <div class='box'>
@@ -34,9 +40,9 @@
         <div class='flex-item-1' style='padding-left:10px;'>
 
 
-                <div class='fbox'>
-                    <div class='box-header'>Moderation options</div>
-                    <div class='box-content style='padding:10px;>
+                <div class='fbox-alt'>
+                    <div class='fbox-header-alt'>Moderation options</div>
+                    <div class='fbox-content-alt' style='padding:10px;'>
                     <input type='checkbox' name='pin' value='topic_pinned'> <label for='pin'>Pin</label> <br>
                     <input type='checkbox' name='lock' value='topic_locked'> <label for='lock'>Lock</label> <br>
                         </div>

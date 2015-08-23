@@ -12,10 +12,19 @@
  }
 
  .post-author-col {
-
+ background: rgba(0,0,0,0.02);
+  border:1px solid rgba(0,0,0,0.02);
  	width: auto;
  }
 
  .message-col {
  	background: #fff;
  }
+
+/**
+ * Category/Topic
+ */
+.drow {
+	min-height: 30px;
+	padding:4px;
+}

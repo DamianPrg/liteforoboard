@@ -130,6 +130,8 @@ body {}
     border:1px solid rgba(69,82,100,0.7);
 }
 
+
+
 .fbox-header {
     background:rgba(0,0,0,0.7);
     padding:7px;
@@ -149,15 +151,29 @@ body {}
 	text-decoration:none;
 }
 
+.fbox-alt {
+	border-radius:3px;
+	border:1px solid rgb(100,100,100);
+}
+
 .fbox-header-alt {
 	padding:7px;
-	background:red;
+	background:rgb(100,100,100);
+	color:white;
+	font-size:12px;
+}
+
+.fbox-content-alt {
+	font-size:11px;
+		background:rgb(220,220,220);
+
 }
 
 .fbox-content {
-    padding:5px;
+ 
     background:rgba(0,0,0,0.05);
-
+    height:auto;
+    overflow:hidden;
 }
 
 .fbox-box-footer {
@@ -208,7 +224,6 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 .table-row {
-	height: 24px;
 }
 
 .row-col {
@@ -216,4 +231,39 @@ input[type=text], input[type=email], input[type=password] {
 }
 .col-padding {
 	padding:5px;
+}
+
+h3 {
+		-webkit-font-smoothing: antialiased;
+		font-weight:200;
+		margin-top:0px;
+
+
+}
+
+/** div table 2*/
+.dtable {
+	  -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.drow {
+	display:flex;
+	display:-webkit-flex;
+	  -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-height:20px;
+}
+
+.dcol {
+	
+	flex:1;
+	-webkit-flex:1;
+}
+.dcol-fixed {
+
 }

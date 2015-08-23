@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $this->checkFor404($category);
 
        // dd($category);
-        return view('skins.default.board.category', ['category' => $category, 'topics' => $topics, 'pinned_topics' => $pinned_topics]);
+        return view('skins.default.board.category.show', ['category' => $category, 'topics' => $topics, 'pinned_topics' => $pinned_topics]);
     }
 
     /**
