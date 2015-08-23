@@ -105,6 +105,29 @@
 
 @section('side')
 
+
+	<div class='fbox-alt'>
+		<div class='fbox-header-alt'>
+			Recent topics
+		</div>
+
+		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
+
+			@foreach(\App\Topic::orderBy('created_at', 'desc')->take(5)->get() as $recent_posts)
+				<div>
+					{!!  $recent_posts->topic->link() !!}
+					by {!! $recent_posts->author->link() !!}
+					<br>
+					{{ $recent_posts->updated_at->diffForHumans()  }}
+				</div>
+				<br>
+			@endforeach
+
+		</div>
+
+	</div>
+
+
 	<div class='fbox-alt'>
 		<div class='fbox-header-alt'>
 			Recent posts
@@ -125,6 +148,8 @@
 		</div>
 
 	</div>
+
+
 
 @endsection
 
