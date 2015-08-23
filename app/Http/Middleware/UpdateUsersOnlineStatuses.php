@@ -33,23 +33,23 @@ class UpdateUsersOnlineStatuses
     public function handle($request, Closure $next)
     {
 
+        // if user is logged update last activity time.
         if($this->auth->isUserLogged())
         {
             $this->auth->getLoggedUser()->updateLastActivity();
         }
 
+        // get all users which are online and check if they are inactive
+        // if they are set online status to false.
         $online_users = User::where('online', true)->get();
 
         foreach($online_users as $online_user)
         {
             if($online_user->isInactive())
             {
+                
+                ///echo "jest: " . $online_user->username;
                 $online_user->update(['online' => false]);
-                echo "Jeden offline!";
-            }
-            else
-            {
-                $online_user->update(['online' => true]);
             }
         }
 

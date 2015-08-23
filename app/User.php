@@ -114,22 +114,25 @@ class User extends Model
         $this->update(['last_activity' => Carbon::now()]);
     }
 
-    public function isInactive($minutes = 15)
+    public function isInactive()
     {
         $activity = new Carbon($this->last_activity);
+
         $now      = Carbon::now();
 
-        $diff = $activity->diffInMinutes($now);
+        $diff = $now->diffInMinutes($activity);
 
-        if($diff > 15)
+       //dd($diff);
+
+        if($diff >= 15)
         {
+           // dd("GIT");
             return true;
         }
         else
         {
             return false;
         }
-       // dd($diff);
     }
 
     /**
@@ -152,4 +155,7 @@ class User extends Model
      * @var array
      */
     protected $hidden = ['password'];
+
+    protected $dates = ['last_activity'];
+
 }
