@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -108,6 +109,29 @@ class User extends Model
         return "<a style='color: $color;' href='" . route('user.profile', [$this->slug]) . "'>" . $this->username . "</a>";
     }
 
+    public function updateLastActivity()
+    {
+        $this->update(['last_activity' => Carbon::now()]);
+    }
+
+    public function isInactive($minutes = 15)
+    {
+        $activity = new Carbon($this->last_activity);
+        $now      = Carbon::now();
+
+        $diff = $activity->diffInMinutes($now);
+
+        if($diff > 15)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+       // dd($diff);
+    }
+
     /**
      * The database table used by the model.
      *
@@ -120,7 +144,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['username', 'email', 'password'];
+    protected $fillable = ['username', 'email', 'password', 'last_activity', 'online'];
 
     /**
      * The attributes excluded from the model's JSON form.

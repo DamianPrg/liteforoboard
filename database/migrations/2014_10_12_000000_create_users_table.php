@@ -25,6 +25,12 @@ class CreateUsersTable extends Migration
             $table->string('title')->default('I am member...');
             $table->string('signature')->default('');
             $table->string('about_me')->default('Im doing great.');
+
+          //  $table->date('last_activity');
+            $table->timestamp('last_activity');
+            $table->boolean('online')->default(false);
+
+
             $table->timestamps();
         });
     }

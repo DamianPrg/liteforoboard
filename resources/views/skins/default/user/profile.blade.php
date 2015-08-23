@@ -11,11 +11,11 @@
 
             <div class='fbox'>
 
-                <div class='box-header'>
+                <div class='fbox-header'>
                     {!! $user->link()  !!}
                 </div>
 
-                <div class='box-content'>
+                <div class='fbox-content'>
                     <div class='box'>
                         Posts: {{ $user->posts()->count()  }}
                     </div>
@@ -32,11 +32,11 @@
 
             <div class='fbox'>
 
-                <div class='box-header'>
+                <div class='fbox-header'>
                     Last activity
                 </div>
 
-                <div class='box-content'>
+                <div class='fbox-content'>
 
                     @foreach($latest_posts as $post)
 

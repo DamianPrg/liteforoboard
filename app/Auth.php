@@ -117,6 +117,8 @@ class Auth
                     $user->save();
                 }
 
+                $user->online = true;
+                $user->save();
                 session(['user_id' => $user->id]); // make user logged.
 
                 return true;
@@ -128,6 +130,10 @@ class Auth
 
     public function logout()
     {
+        $user = User::find(session('user_id'));
+        $user->online = true;
+        $user->save();
+
         \Session::forget('user_id');
     }
 }

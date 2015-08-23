@@ -98,6 +98,14 @@
 					{{ \App\Topic::all()->count()  }} topics
 					</span>
 
+				<br>
+
+				<i>Online users (15 minutes)</i>:
+
+				@foreach(\App\User::where('online', true)->get() as $ouser)
+	{!! $ouser->link() !!},
+					@endforeach
+
 				</div>
 
 		</div>
@@ -113,12 +121,12 @@
 
 		<div class='fbox-content-alt' style='text-align: center; padding:10px;'>
 
-			@foreach(\App\Topic::orderBy('created_at', 'desc')->take(5)->get() as $recent_posts)
+			@foreach(\App\Topic::orderBy('created_at', 'desc')->take(5)->get() as $recent_topic)
 				<div>
-					{!!  $recent_posts->topic->link() !!}
-					by {!! $recent_posts->author->link() !!}
+					{!!  $recent_topic->link() !!}
+					by {!! $recent_topic->author->link() !!}
 					<br>
-					{{ $recent_posts->updated_at->diffForHumans()  }}
+					{{ $recent_topic->created_at->diffForHumans()  }}
 				</div>
 				<br>
 			@endforeach
@@ -127,6 +135,7 @@
 
 	</div>
 
+	<br>
 
 	<div class='fbox-alt'>
 		<div class='fbox-header-alt'>
