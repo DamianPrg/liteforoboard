@@ -8,7 +8,7 @@
     Post:
     <pre>{!! $post->message !!}</pre>
 
-    <form>
+    <form action='{{ route('board.post.edit-store', [$post->id]) }}' method='POST'>
         <textarea name='message'>{!! $post->message !!}</textarea>
 
         <br>

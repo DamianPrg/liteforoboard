@@ -54,6 +54,7 @@ Route::group(['as' => 'board.'], function () {
 	Route::post('/post/store/{topic_id}', ['as' => 'post.store', 'uses' => 'PostController@store']);
 	Route::get('/post/remove/{post_id}', ['as' => 'post.remove', 'uses' => 'PostController@remove']);
 	Route::get('/post/edit/{post_id}', ['as' => 'post.edit', 'uses' => 'PostController@edit']);
+	Route::post('/post/edit-store/{id}', ['as' => 'post.edit-store', 'uses' => 'PostController@edit_store']);
 });
 
 /**

@@ -15,7 +15,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('LoggedOnly', ['only' => 'store']);
-        $this->middleware('StaffOnly', ['only' => ['remove', 'edit']]);
+        $this->middleware('StaffOnly', ['only' => ['remove', 'edit', 'edit_store']]);
     }
 
     /**
@@ -108,11 +108,18 @@ class PostController extends Controller
         return view('skins.default.board.post.edit', ['post' => Post::find($post_id)]);
     }
 
-    /**
-     *
-     */
-    public function edit_store(Request $request)
-    {
 
+    /**
+     * @param Request $request
+     * @param $id
+     */
+    public function edit_store(Request $request, $id)
+    {
+        $p = Post::find($id);
+        $p->update($request->all());
+
+        //dd($p);
+
+        return redirect(route('board.topic.show', [$p->topic->slug]));
     }
 }
