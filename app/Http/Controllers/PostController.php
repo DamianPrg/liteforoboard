@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Auth;
+use App\Post;
 use App\Topic;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('LoggedOnly', ['only' => 'store']);
+        $this->middleware('StaffOnly', ['only' => ['remove', 'edit']]);
     }
 
     /**
@@ -63,16 +65,6 @@ class PostController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -95,5 +87,32 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * @param $post_id
+     */
+    public function remove($post_id)
+    {
+        Post::destroy($post_id);
+
+    }
+
+    /**
+     * @param $post_id
+     * @return \Illuminate\View\View
+     */
+    public function edit($post_id)
+    {
+        return view('skins.default.board.post.edit', ['post' => Post::find($post_id)]);
+    }
+
+    /**
+     *
+     */
+    public function edit_store(Request $request)
+    {
+
     }
 }

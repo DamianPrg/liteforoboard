@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
         \Blade::extend(function($value) {
             return preg_replace('/\{\?(.+)\?\}/', '<?php ${1} ?>', $value);
         });
+
+        view()->share('layout', 'skins.default.layouts.default');
     }
 
     /**

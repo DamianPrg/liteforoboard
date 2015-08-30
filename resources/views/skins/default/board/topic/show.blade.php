@@ -60,6 +60,25 @@
 
             <div>
     		{!! $post->message !!}
+                <hr>
+                <div>
+                    @if($auth->isStaff())
+
+                            <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Post Actions <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('board.post.remove', [$post->id]) }}"><i class="fa fa-trash-o fa-fw"></i>
+                                     Remove</a></li>
+                            <li><a href='{{ route('board.post.edit', [$post->id]) }}'><i class="fa fa-pencil fa-fw"></i>
+                                    Edit</a></li>
+                        </ul>
+                    </div>
+
+                        @endif
+                    </div>
                 </div>
     	</div>
     </div>
