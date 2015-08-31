@@ -11,3 +11,7 @@ little project in laravel 5.1
 2. run 'composer install'
 3. copy .env.example as .env and fill your database connection details
 4. navigate to http://your_web_server/install to migrate and seed database
+   or run these commands in terminal (in project directory)
+  php artisan migrate
+  php artisan db:seed
+  
