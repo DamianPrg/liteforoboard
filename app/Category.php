@@ -114,4 +114,19 @@ class Category extends Model
             'slug' => $this->id . '-' . strtolower(str_slug($this->title))
         ]);
     }
+
+    public function remove()
+    {
+        // @todo: remove posts/topics
+
+        if($this->category_id == -1)
+        {
+            foreach($this->categories() as $category)
+            {
+                $category->delete();
+            }
+        }
+
+        $this->delete();
+    }
 }

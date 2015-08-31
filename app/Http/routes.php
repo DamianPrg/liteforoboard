@@ -43,6 +43,7 @@ Route::group(['as' => 'user.'], function () {
  */ 
 Route::group(['as' => 'board.'], function () {
 	Route::get('/category/{slug}', ['as' => 'category.show', 'uses' => 'CategoryController@show']);
+	Route::get('/category/remove/{id}', ['as' => 'category.remove', 'uses' => 'CategoryController@destroy']);
 
 	Route::get('/topic/{slug}', ['as' => 'topic.show', 'uses' => 'TopicController@show']);
 	Route::get('/topic/create/{cat_id}', ['as' => 'topic.create', 'uses' => 'TopicController@create']);
@@ -63,6 +64,9 @@ Route::group(['as' => 'board.'], function () {
 Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middleware' => 'AdminOnly'], function () {
 
 	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+
+	// Content
+	Route::get('content-categories', ['as' => 'content.categories', 'uses' => 'ContentController@showCategories']);
 
 	Route::get('form', function(\App\Form $form) {
 

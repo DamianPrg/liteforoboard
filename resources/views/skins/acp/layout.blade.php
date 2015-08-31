@@ -305,7 +305,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     Settings</a></li>
                 <li><a href="#"><i class="fa fa-file-text"></i>
                     Manage</a></li>
-                <li><a href="#"><i class="fa fa-file-text"></i>
+                <li><a href="{{ route('acp.content.categories') }}"><i class="fa fa-file-text"></i>
                     Categories</a></li>
               </ul>
             </li>
@@ -406,17 +406,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           </div>
 
-          @for($i = 0; $i < 3; $i++)
-            <div class='box box-solid'>
-              <div class="box-body">
-                @yield('content_' . $i)
 
-
-              </div>
-            </div>
-
-
-            @endfor
 
           @yield('content_bottom', '')
 
