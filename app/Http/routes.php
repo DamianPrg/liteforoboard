@@ -73,6 +73,16 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 	Route::get('content/edit-category/{id}', ['as' => 'content.categories.edit', 'uses' => 'ContentController@editCategory']);
 	Route::post('content/update-category/{id}', ['as' => 'content.categories.update', 'uses' => 'ContentController@updateCategory']);
 
+	// Groups
+	Route::get('groups/index', ['as' => 'groups.index', 'uses' => 'GroupController@index']);
+	Route::get('groups/create', ['as' => 'groups.create', 'uses' => 'GroupController@create']);
+	Route::get('groups/edit/{id}', ['as' => 'groups.edit', 'uses' => 'GroupController@edit']);
+	Route::post('groups/store', ['as' => 'groups.store', 'uses' => 'GroupController@store']);
+	Route::post('groups/update/{id}', ['as' => 'groups.update', 'uses' => 'GroupController@update']);
+	Route::post('groups/destroy/{id}', ['as' => 'groups.destroy', 'uses' => 'GroupController@destroy']);
+
+
+
 	Route::get('form', function(\App\Form $form) {
 
 		$form->route = 'index';

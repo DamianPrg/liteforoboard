@@ -4252,5 +4252,5 @@ display:none;
 }
 
 .flex-col-fixed {
-  width: 100px;
+  width: auto;
 }

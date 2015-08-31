@@ -285,11 +285,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
 
             <li class="treeview">
-              <a href="#"><i class="fa fa-user"></i><span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="{{route('acp.groups.index')}}"><i class="fa fa-user"></i><span>Groups</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-file-text"></i>
                     Settings</a></li>
-                <li><a href="#"><i class="fa fa-file-text"></i>
+                <li><a href="{{route('acp.groups.index')}}"><i class="fa fa-file-text"></i>
                     Manage</a></li>
                 <li><a href="#"><i class="fa fa-file-text"></i>
                     Add</a></li>
