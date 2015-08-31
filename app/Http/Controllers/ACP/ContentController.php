@@ -33,6 +33,8 @@ class ContentController extends Controller
 
             $c->addCategory($request->input('title'),
                             $request->input('desc'));
+
+            $c->updateSlug();
         }
         else
         {
@@ -41,6 +43,8 @@ class ContentController extends Controller
                 'desc' => $request->input('desc'),
                 'category_id' => -1,
             ]);
+
+            $c->updateSlug();
         }
 
         return back();
