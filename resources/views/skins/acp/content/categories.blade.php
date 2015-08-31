@@ -30,7 +30,7 @@ Categories
                 <div class='flex-col'>{{$category->title}}</div>
                 <div class='flex-col'>
                     <a data-toggle="tooltip" title="Remove category" class='btn btn-danger btn-xs' href='{{ route('board.category.remove', [$category->id]) }}'><i class='fa fa-remove fa-fw'></i></a>
-                    <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='#'><i class='fa fa-pencil fa-fw'></i></a>
+                    <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.edit',[$category->id]) }}'><i class='fa fa-pencil fa-fw'></i></a>
                     <a data-toggle="tooltip" title="Add new category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.create', [$category->id]) }}'><i class='fa fa-plus fa-fw'></i></a>
                 </div>
             </div>
@@ -41,7 +41,7 @@ Categories
                     <div class='flex-col'>{{$category->title}}</div>
                     <div class='flex-col'>
                         <a data-toggle="tooltip" title="Remove category" class='btn btn-danger btn-xs' href='{{ route('board.category.remove', [$category->id]) }}'><i class='fa fa-remove fa-fw'></i></a>
-                        <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='#'><i class='fa fa-pencil fa-fw'></i></a>
+                        <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.edit',[$category->id]) }}'><i class='fa fa-pencil fa-fw'></i></a>
                         <a data-toggle="tooltip" title="Add new category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.create', [$category->id]) }}'><i class='fa fa-plus fa-fw'></i></a>
                     </div>
                 </div>

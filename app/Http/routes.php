@@ -70,6 +70,8 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 	Route::get('content/create-category/{id}', ['as' => 'content.categories.create', 'uses' => 'ContentController@createCategory']);
 	Route::get('content/category/remove-all',['as' => 'content.categories.remove-all', 'uses' => 'ContentController@removeAllCategories']);
 	Route::post('content/store-category/{id}', ['as' => 'content.categories.store', 'uses' => 'ContentController@storeCategory']);
+	Route::get('content/edit-category/{id}', ['as' => 'content.categories.edit', 'uses' => 'ContentController@editCategory']);
+	Route::post('content/update-category/{id}', ['as' => 'content.categories.update', 'uses' => 'ContentController@updateCategory']);
 
 	Route::get('form', function(\App\Form $form) {
 

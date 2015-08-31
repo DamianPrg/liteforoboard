@@ -50,6 +50,25 @@ class ContentController extends Controller
         return back();
     }
 
+    public function editCategory($id)
+    {
+        $category = Category::find($id);
+
+        return view('skins.acp.content.categories.edit', ['category' => $category]);
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+
+        $c = Category::find($id);
+
+        $c->update($request->all());
+
+       
+
+        return back();
+    }
+
     public function removeAllCategories()
     {
         return back();

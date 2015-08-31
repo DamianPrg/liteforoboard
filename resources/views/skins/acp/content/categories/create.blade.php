@@ -19,7 +19,12 @@
 
         <label for='title'>Title</label><br><input class='form-control' type='text' name='title'>
         <br>
+            @if($category_id == -1)
+                <label for='desc'>Description</label><br><input disabled class='form-control' type='text' name='desc'>
+
+            @else
         <label for='desc'>Description</label><br><input class='form-control' type='text' name='desc'>
+        @endif
 
         <div style='text-align: center;margin-bottom:8px;margin-top:8px;'>
             <button type='submit' class='btn btn-primary btn'>Create</button>
