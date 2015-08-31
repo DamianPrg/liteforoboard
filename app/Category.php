@@ -129,4 +129,7 @@ class Category extends Model
 
         $this->delete();
     }
+
+    protected $fillable = ['category_id', 'title', 'desc'];
+
 }

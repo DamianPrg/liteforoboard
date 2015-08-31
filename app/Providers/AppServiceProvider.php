@@ -18,7 +18,8 @@ class AppServiceProvider extends ServiceProvider
             return preg_replace('/\{\?(.+)\?\}/', '<?php ${1} ?>', $value);
         });
 
-        view()->share('layout', 'skins.default.layouts.default');
+        view()->share('layout',    'skins.default.layouts.default');
+        view()->share('acpLayout', 'skins.acp.layout');
     }
 
     /**

@@ -10,24 +10,45 @@ Categories
 
 @section('content')
 
-    <a class='btn btn-primary'><i class='fa fa-plus'></i> Add Category</a>
+    <div style='margin-top:8px;margin-bottom:8px;'>
+            <a href='{{ route('acp.content.categories.create', [-1]) }}' class='btn btn-default btn-sm'>Add Category</a>
+        <a href='{{ route('acp.content.categories.remove-all') }}' class='btn btn-danger btn-sm'>Remove All</a>
+    </div>
 
-    <br>
-    <br>
+    <div class='flex-table'>
+
+        <div class='flex-head-row'>
+            <div class='flex-col-id'>#</div>
+            <div class='flex-col'>Title</div>
+            <div class='flex-col'>Actions</div>
+        </div>
 
     @foreach($categories as $category)
 
-        <div>
-            {{ $category->title }} ({{$category->categories()->count()}}) <a class='btn btn-danger btn-xs' href='#'><i class='fa fa-remove'></i></a>
+            <div class='flex-row'>
+                <div class='flex-col-id'>{{$category->id}}</div>
+                <div class='flex-col'>{{$category->title}}</div>
+                <div class='flex-col'>
+                    <a data-toggle="tooltip" title="Remove category" class='btn btn-danger btn-xs' href='{{ route('board.category.remove', [$category->id]) }}'><i class='fa fa-remove fa-fw'></i></a>
+                    <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='#'><i class='fa fa-pencil fa-fw'></i></a>
+                    <a data-toggle="tooltip" title="Add new category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.create', [$category->id]) }}'><i class='fa fa-plus fa-fw'></i></a>
+                </div>
+            </div>
 
-
-            {{-- sub categories --}}
-            @foreach($category->categories as $subcat)
-                <div style='color:rgba(0,0,0,0.5);padding-left:20px;'>{{$subcat->title}}</div>
-            @endforeach
-        </div>
-        <hr>
+            @foreach($category->categories as $category)
+                <div class='flex-row' style='background:rgba(0,0,0,0.05);'>
+                    <div class='flex-col-id'></div>
+                    <div class='flex-col'>{{$category->title}}</div>
+                    <div class='flex-col'>
+                        <a data-toggle="tooltip" title="Remove category" class='btn btn-danger btn-xs' href='{{ route('board.category.remove', [$category->id]) }}'><i class='fa fa-remove fa-fw'></i></a>
+                        <a data-toggle="tooltip" title="Edit category" class='btn btn-default btn-xs' href='#'><i class='fa fa-pencil fa-fw'></i></a>
+                        <a data-toggle="tooltip" title="Add new category" class='btn btn-default btn-xs' href='{{ route('acp.content.categories.create', [$category->id]) }}'><i class='fa fa-plus fa-fw'></i></a>
+                    </div>
+                </div>
+                @endforeach
 
     @endforeach
+
+    </div>
 
 @endsection

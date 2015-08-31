@@ -101,5 +101,7 @@ class CategoryController extends Controller
         //
         $category = Category::find($id);
         $category->remove();
+
+        return back();
     }
 }

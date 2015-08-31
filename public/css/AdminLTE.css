@@ -4216,3 +4216,41 @@ table.text-center th {
 .no-display-empty:empty {
 display:none;
 }
+
+/** table **/
+.flex-table {
+  width: 100%;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.flex-head-row {
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  display:-webkit-flex;
+  display:flex;
+  height:30px;
+  padding:5px;
+}
+
+.flex-row {
+  display:-webkit-flex;
+  display:flex;
+  height:30px;
+  padding:5px;
+}
+
+.flex-row:nth-child(2n) {
+  background:rgba(0,0,0,0.015);
+}
+
+.flex-col {
+  -webkit-flex:1;
+}
+
+.flex-col-id {
+  width:26px;
+  text-align: center;
+}
+
+.flex-col-fixed {
+  width: 100px;
+}

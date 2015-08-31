@@ -66,7 +66,10 @@ Route::group(['prefix' => 'acp', 'as' => 'acp.', 'namespace' => 'ACP', 'middlewa
 	Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
 	// Content
-	Route::get('content-categories', ['as' => 'content.categories', 'uses' => 'ContentController@showCategories']);
+	Route::get('content/categories', ['as' => 'content.categories', 'uses' => 'ContentController@showCategories']);
+	Route::get('content/create-category/{id}', ['as' => 'content.categories.create', 'uses' => 'ContentController@createCategory']);
+	Route::get('content/category/remove-all',['as' => 'content.categories.remove-all', 'uses' => 'ContentController@removeAllCategories']);
+	Route::post('content/store-category/{id}', ['as' => 'content.categories.store', 'uses' => 'ContentController@storeCategory']);
 
 	Route::get('form', function(\App\Form $form) {
 
