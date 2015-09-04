@@ -129,3 +129,12 @@ Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function() {
 
 });
 
+/**
+ * API
+ */
+Route::group(['prefix' => 'api'], function() {
+
+	Route::get('user_{id}.json', 'APIController@user');
+	Route::get('user_auth.{username}.{password}.json', 'APIController@auth');
+
+});
