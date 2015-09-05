@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,22 @@ class APIController extends Controller
             {
                 return response()->json(['ok' => true]);
             }
+        }
+
+        return response()->json(['ok' => false]);
+    }
+
+    public function post($id)
+    {
+        $p = Post::find($id);
+
+        if($p)
+        {
+            return response()->json([
+                'id' => $p->id,
+                'message' => $p->message,
+                'author' => $p->author_id
+            ]);
         }
 
         return response()->json(['ok' => false]);

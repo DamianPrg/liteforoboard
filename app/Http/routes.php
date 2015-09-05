@@ -137,4 +137,6 @@ Route::group(['prefix' => 'api'], function() {
 	Route::get('user_{id}.json', 'APIController@user');
 	Route::get('user_auth.{username}.{password}.json', 'APIController@auth');
 
+	Route::get('post_{id}.json', 'APIController@post');
+
 });
